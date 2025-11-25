@@ -63,7 +63,7 @@
                 </div>
                 <a href="index.html#contacts">Контакты</a>
             </nav>
-            <a href="cart.html" class="cart-btn" aria-label="Корзина">
+            <a href="cart.html" class="cart-btn" aria-label="Корзина" onclick="ym(105507158,'reachGoal','SHOP_CART_CLICK'); return true;">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 6h2l.4 2M7 13h9l1.5-6h-13L7 13zM7 17a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm8 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" 
                           stroke="#C8B273" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -91,20 +91,56 @@
             <div class="mobile-filters-container" id="mobileFiltersContainer">
                 <div class="mobile-filters-content">
                     <div class="mobile-search-box">
-                        <input type="text" placeholder="Поиск..." id="mobileSearchInput">
-                        <button class="mobile-search-btn">🔍</button>
+                        <input type="text" placeholder="Поиск товаров..." id="mobileSearchInput" onfocus="ym(105507158,'reachGoal','SHOP_SEARCH_FOCUS');">
+                        <button class="mobile-search-btn" onclick="ym(105507158,'reachGoal','SHOP_SEARCH_CLICK');">🔍</button>
                     </div>
+                    
                     <div class="mobile-filter-section">
-                        <div class="mobile-filter-section-title"><span>🏷️</span> Фильтр</div>
+                        <div class="mobile-filter-section-title">
+                            <span>📦</span> Категории
+                        </div>
+                        <div class="mobile-filter-buttons">
+                            <button class="mobile-filter-btn" data-category="all" onclick="window.location.href='shop.html'">Все</button>
+                            <button class="mobile-filter-btn active" data-category="equipment">Экипировка</button>
+                            <button class="mobile-filter-btn" data-category="cosmetic" onclick="window.location.href='cosmetic.html'">Косметика</button>
+                            <button class="mobile-filter-btn" data-category="pharma" onclick="window.location.href='pharma.html'">Аптека</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-filter-section">
+                        <div class="mobile-filter-section-title">
+                            <span>🏷️</span> Статус
+                        </div>
                         <div class="mobile-filter-buttons">
                             <button class="mobile-filter-btn active" data-filter="all">Все</button>
                             <button class="mobile-filter-btn" data-filter="new">Новинки</button>
-                            <button class="mobile-filter-btn" data-filter="popular">Популярное</button>
+                            <button class="mobile-filter-btn" data-filter="sale">Акции</button>
+                            <button class="mobile-filter-btn" data-filter="bestseller">Хиты</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- CATEGORIES -->
+        <section class="categories-section">
+            <div class="categories-container">
+                <div class="categories-nav">
+                    <button class="category-btn" onclick="window.location.href='shop.html'">
+                        <span>📦</span> Все товары
+                    </button>
+                    <button class="category-btn active" data-category="equipment">
+                        <span>🥊</span> Экипировка
+                    </button>
+                    <button class="category-btn" onclick="window.location.href='cosmetic.html'">
+                        <span>🧼</span> Косметика
+                    </button>
+                    <button class="category-btn" onclick="window.location.href='pharma.html'">
+                        <span>💊</span> Аптека
+                    </button>
+                </div>
+            </div>
+        </section>
 
         <!-- FILTERS SECTION -->
         <section class="filters-section">
@@ -112,19 +148,22 @@
                 <div class="filter-group">
                     <button class="filter-btn active" data-filter="all">Все</button>
                     <button class="filter-btn" data-filter="new">Новинки</button>
-                    <button class="filter-btn" data-filter="popular">Популярное</button>
+                    <button class="filter-btn" data-filter="sale">Акции</button>
+                    <button class="filter-btn" data-filter="bestseller">Хиты</button>
                 </div>
+                
                 <div class="sorting">
-                    <select aria-label="Сортировка">
+                    <select aria-label="Сортировка" onchange="ym(105507158,'reachGoal','SHOP_SORT_CHANGE');">
                         <option value="default">По умолчанию</option>
+                        <option value="price-asc">По цене (↑)</option>
+                        <option value="price-desc">По цене (↓)</option>
                         <option value="name">По названию</option>
-                        <option value="price-asc">Сначала дешёвые</option>
-                        <option value="price-desc">Сначала дорогие</option>
                     </select>
                 </div>
+                
                 <div class="search-box">
-                    <input type="text" placeholder="Поиск..." id="desktopSearchInput">
-                    <button class="search-btn">🔍</button>
+                    <input type="text" placeholder="Поиск..." id="desktopSearchInput" onfocus="ym(105507158,'reachGoal','SHOP_SEARCH_FOCUS');">
+                    <button class="search-btn" onclick="ym(105507158,'reachGoal','SHOP_SEARCH_CLICK');">🔍</button>
                 </div>
             </div>
         </section>
@@ -136,55 +175,201 @@
             </div>
 
             <div class="products-grid">
-                <div class="product-card equipment" data-status="popular">
+                <div class="product-card equipment" data-category="equipment" data-status="bestseller">
                     <div class="product-badge bestseller">ХИТ</div>
                     <div class="product-image">
-                        <img src="generated-image (3).png" alt="Боксёрские перчатки" loading="lazy">
+                        <img src="pro.png" alt="Боксёрские перчатки Pro" loading="lazy">
                     </div>
                     <div class="product-category"><span>🥊</span> Экипировка</div>
-                    <h3 class="product-title">Боксёрские перчатки Pro</h3>
-                    <p class="product-description">Профессиональные перчатки для тренировок и спаррингов</p>
+                    <h3 class="product-title">Боксёрские перчатки Pro 12oz</h3>
+                    <p class="product-description">Профессиональные перчатки для тренировок и спаррингов с усиленной защитой</p>
                     <div class="product-price">
                         <div>
                             <span class="price">8,500₽</span>
                             <span class="old-price">10,000₽</span>
                         </div>
-                        <button class="add-to-cart" data-product="Боксёрские перчатки Pro" data-price="8500" data-category="equipment">
-                            <span>🛍️</span> В корзину
+                        <button class="add-to-cart" data-product="Боксёрские перчатки Pro 12oz" data-price="8500" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Боксёрские перчатки Pro 12oz',price:8500,category:'equipment'});">
+                            <span>🛒</span> В корзину
                         </button>
                     </div>
                 </div>
 
-                <div class="product-card equipment" data-status="new">
+                <div class="product-card equipment" data-category="equipment" data-status="new">
                     <div class="product-badge new">NEW</div>
                     <div class="product-image">
-                        <img src="generated-image (2).png" alt="Защитный шлем" loading="lazy">
+                        <img src="gardian.png" alt="Защитный шлем Guardian" loading="lazy">
                     </div>
                     <div class="product-category"><span>🥊</span> Экипировка</div>
-                    <h3 class="product-title">Защитный шлем</h3>
-                    <p class="product-description">Профессиональный шлем для спаррингов</p>
+                    <h3 class="product-title">Защитный шлем Guardian</h3>
+                    <p class="product-description">Профессиональный шлем для спаррингов с усиленной защитой</p>
                     <div class="product-price">
                         <div><span class="price">6,200₽</span></div>
-                        <button class="add-to-cart" data-product="Защитный шлем" data-price="6200" data-category="equipment">
-                            <span>🛍️</span> В корзину
+                        <button class="add-to-cart" data-product="Защитный шлем Guardian" data-price="6200" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Защитный шлем Guardian',price:6200,category:'equipment'});">
+                            <span>🛒</span> В корзину
                         </button>
                     </div>
                 </div>
 
-                <div class="product-card equipment" data-status="new">
+                <div class="product-card equipment" data-category="equipment" data-status="sale">
+                    <div class="product-badge sale">SALE -25%</div>
+                    <div class="product-image">
+                        <img src="speed (1).jpg" alt="Боксёрки Speed Pro" loading="lazy">
+                    </div>
+                    <div class="product-category"><span>🥊</span> Экипировка</div>
+                    <h3 class="product-title">Боксёрки Speed Pro</h3>
+                    <p class="product-description">Лёгкие боксёрки для максимальной подвижности</p>
+                    <div class="product-price">
+                        <div>
+                            <span class="price">5,600₽</span>
+                            <span class="old-price">7,500₽</span>
+                        </div>
+                        <button class="add-to-cart" data-product="Боксёрки Speed Pro" data-price="5600" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Боксёрки Speed Pro',price:5600,category:'equipment'});">
+                            <span>🛒</span> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card equipment" data-category="equipment" data-status="new">
                     <div class="product-badge new">NEW</div>
                     <div class="product-image">
-                        <img src="generated-image.png" alt="Капа" loading="lazy">
+                        <img src="generated-image.png" alt="Капа Shield Pro" loading="lazy">
                     </div>
                     <div class="product-category"><span>🥊</span> Защита</div>
                     <h3 class="product-title">Капа Shield Pro</h3>
-                    <p class="product-description">Двухчелюстная капа из медицинского силикона</p>
+                    <p class="product-description">Двухчелюстная капа из медицинского силикона для максимальной защиты</p>
                     <div class="product-price">
                         <div><span class="price">1,800₽</span></div>
-                        <button class="add-to-cart" data-product="Капа Shield Pro" data-price="1800" data-category="equipment">
-                            <span>🛍️</span> В корзину
+                        <button class="add-to-cart" data-product="Капа Shield Pro" data-price="1800" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Капа Shield Pro',price:1800,category:'equipment'});">
+                            <span>🛒</span> В корзину
                         </button>
                     </div>
+                </div>
+
+                <div class="product-card equipment" data-category="equipment" data-status="bestseller">
+                    <div class="product-badge bestseller">ХИТ</div>
+                    <div class="product-image">
+                        <img src="boxeorki.png" alt="Боксёрские бинты" loading="lazy">
+                    </div>
+                    <div class="product-category"><span>🥊</span> Экипировка</div>
+                    <h3 class="product-title">Боксёрские бинты 4м</h3>
+                    <p class="product-description">Эластичные бинты для защиты кистей рук</p>
+                    <div class="product-price">
+                        <div><span class="price">800₽</span></div>
+                        <button class="add-to-cart" data-product="Боксёрские бинты 4м" data-price="800" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Боксёрские бинты 4м',price:800,category:'equipment'});">
+                            <span>🛒</span> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card equipment" data-category="equipment" data-status="new">
+                    <div class="product-badge new">NEW</div>
+                    <div class="product-image">
+                        <img src="meshok.png" alt="Боксёрский мешок" loading="lazy">
+                    </div>
+                    <div class="product-category"><span>🥊</span> Снаряды</div>
+                    <h3 class="product-title">Боксёрский мешок 30кг</h3>
+                    <p class="product-description">Профессиональный мешок для отработки ударов</p>
+                    <div class="product-price">
+                        <div><span class="price">12,500₽</span></div>
+                        <button class="add-to-cart" data-product="Боксёрский мешок 30кг" data-price="12500" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Боксёрский мешок 30кг',price:12500,category:'equipment'});">
+                            <span>🛒</span> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card equipment" data-category="equipment" data-status="bestseller">
+                    <div class="product-badge bestseller">ХИТ</div>
+                    <div class="product-image">
+                        <img src="skakalka.png" alt="Скакалка скоростная" loading="lazy">
+                    </div>
+                    <div class="product-category"><span>🥊</span> Аксессуары</div>
+                    <h3 class="product-title">Скакалка скоростная Pro</h3>
+                    <p class="product-description">Профессиональная скакалка для кардио тренировок</p>
+                    <div class="product-price">
+                        <div><span class="price">1,200₽</span></div>
+                        <button class="add-to-cart" data-product="Скакалка скоростная Pro" data-price="1200" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Скакалка скоростная Pro',price:1200,category:'equipment'});">
+                            <span>🛒</span> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card equipment" data-category="equipment" data-status="sale">
+                    <div class="product-badge sale">SALE -20%</div>
+                    <div class="product-image">
+                        <img src="sumka.png" alt="Спортивная сумка" loading="lazy">
+                    </div>
+                    <div class="product-category"><span>🥊</span> Аксессуары</div>
+                    <h3 class="product-title">Спортивная сумка Champion</h3>
+                    <p class="product-description">Вместительная сумка для экипировки</p>
+                    <div class="product-price">
+                        <div>
+                            <span class="price">3,200₽</span>
+                            <span class="old-price">4,000₽</span>
+                        </div>
+                        <button class="add-to-cart" data-product="Спортивная сумка Champion" data-price="3200" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Спортивная сумка Champion',price:3200,category:'equipment'});">
+                            <span>🛒</span> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card equipment" data-category="equipment" data-status="new">
+                    <div class="product-badge new">NEW</div>
+                    <div class="product-image">
+                        <img src="target.png" alt="Лапы боксёрские" loading="lazy">
+                    </div>
+                    <div class="product-category"><span>🥊</span> Снаряды</div>
+                    <h3 class="product-title">Лапы боксёрские Target Pro</h3>
+                    <p class="product-description">Профессиональные лапы для отработки техники ударов</p>
+                    <div class="product-price">
+                        <div><span class="price">5,500₽</span></div>
+                        <button class="add-to-cart" data-product="Лапы боксёрские Target Pro" data-price="5500" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Лапы боксёрские Target Pro',price:5500,category:'equipment'});">
+                            <span>🛒</span> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card equipment" data-category="equipment" data-status="bestseller">
+                    <div class="product-badge bestseller">ХИТ</div>
+                    <div class="product-image">
+                        <img src="komplekt.png" alt="Комплект для бокса" loading="lazy">
+                    </div>
+                    <div class="product-category"><span>🥊</span> Наборы</div>
+                    <h3 class="product-title">Стартовый комплект боксёра</h3>
+                    <p class="product-description">Полный набор: перчатки, бинты, капа, шлем</p>
+                    <div class="product-price">
+                        <div>
+                            <span class="price">15,000₽</span>
+                            <span class="old-price">18,500₽</span>
+                        </div>
+                        <button class="add-to-cart" data-product="Стартовый комплект боксёра" data-price="15000" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Стартовый комплект боксёра',price:15000,category:'equipment'});">
+                            <span>🛒</span> В корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INFO -->
+        <section class="about-section">
+            <div class="section-header">
+                <h2>Почему выбирают наш магазин</h2>
+                <p>Преимущества покупки в RING BOXING CLUB</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">✅</div>
+                    <h3>100% Оригинал</h3>
+                    <p>Работаем напрямую с производителями, все товары сертифицированы</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🚚</div>
+                    <h3>Быстрая доставка</h3>
+                    <p>Доставка по Пензе в день заказа, по России 2-5 дней</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">💬</div>
+                    <h3>Консультация</h3>
+                    <p>Помощь в выборе от профессиональных спортсменов</p>
                 </div>
             </div>
         </section>
@@ -207,7 +392,7 @@
                     <li><a href="equipment.html">Экипировка</a></li>
                     <li><a href="cosmetic.html">Косметика</a></li>
                     <li><a href="pharma.html">Аптека</a></li>
-                    <li><a href="cart.html">Корзина</a></li>
+                    <li><a href="cart.html" onclick="ym(105507158,'reachGoal','SHOP_CART_CLICK'); return true;">Корзина</a></li>
                 </ul>
             </div>
             <div class="footer-column">
