@@ -9,6 +9,27 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥊</text></svg>">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/catalog.css">
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105507158', 'ym');
+
+        ym(105507158, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+        
+        // Отслеживание страницы магазина
+        ym(105507158, 'hit', window.location.href, {
+            title: 'Магазин - Каталог товаров',
+            referer: document.referrer
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105507158" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
 	<style>
         /* Стили только для герой-секции с изображением */
         .hero {
@@ -59,7 +80,7 @@
                 <a href="https://dzen.ru/ring_boxin_club?share_to=link">Блог</a>
                 <a href="index.html#contacts">Контакты</a>
             </nav>
-            <a href="cart.html" class="cart-btn" aria-label="Корзина">
+            <a href="cart.html" class="cart-btn" aria-label="Корзина" onclick="ym(105507158,'reachGoal','SHOP_CART_CLICK'); return true;">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 6h2l.4 2M7 13h9l1.5-6h-13L7 13zM7 17a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm8 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" 
                           stroke="#C8B273" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -90,8 +111,8 @@
             <div class="mobile-filters-container" id="mobileFiltersContainer">
                 <div class="mobile-filters-content">
                     <div class="mobile-search-box">
-                        <input type="text" placeholder="Поиск товаров..." id="mobileSearchInput">
-                        <button class="mobile-search-btn">🔍</button>
+                        <input type="text" placeholder="Поиск товаров..." id="mobileSearchInput" onfocus="ym(105507158,'reachGoal','SHOP_SEARCH_FOCUS');">
+                        <button class="mobile-search-btn" onclick="ym(105507158,'reachGoal','SHOP_SEARCH_CLICK');">🔍</button>
                     </div>
                     
                     <div class="mobile-filter-section">
@@ -100,9 +121,9 @@
                         </div>
                         <div class="mobile-filter-buttons">
                             <button class="mobile-filter-btn active" data-category="all">Все</button>
-                            <button class="mobile-filter-btn" data-category="equipment">Экипировка</button>
-                            <button class="mobile-filter-btn" data-category="cosmetic">Косметика</button>
-                            <button class="mobile-filter-btn" data-category="pharma">Аптека</button>
+                            <button class="mobile-filter-btn" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_FILTER_EQUIPMENT');">Экипировка</button>
+                            <button class="mobile-filter-btn" data-category="cosmetic" onclick="ym(105507158,'reachGoal','SHOP_FILTER_COSMETIC');">Косметика</button>
+                            <button class="mobile-filter-btn" data-category="pharma" onclick="ym(105507158,'reachGoal','SHOP_FILTER_PHARMA');">Аптека</button>
                         </div>
                     </div>
                     
@@ -128,13 +149,13 @@
                     <button class="category-btn active" data-category="all">
                         <span>📦</span> Все товары
                     </button>
-                    <button class="category-btn" data-category="equipment">
+                    <button class="category-btn" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_FILTER_EQUIPMENT');">
                         <span>🥊</span> Экипировка
                     </button>
-                    <button class="category-btn" data-category="cosmetic">
+                    <button class="category-btn" data-category="cosmetic" onclick="ym(105507158,'reachGoal','SHOP_FILTER_COSMETIC');">
                         <span>🧼</span> Косметика
                     </button>
-                    <button class="category-btn" data-category="pharma">
+                    <button class="category-btn" data-category="pharma" onclick="ym(105507158,'reachGoal','SHOP_FILTER_PHARMA');">
                         <span>💊</span> Аптека
                     </button>
                 </div>
@@ -152,7 +173,7 @@
                 </div>
                 
                 <div class="sorting">
-                    <select aria-label="Сортировка">
+                    <select aria-label="Сортировка" onchange="ym(105507158,'reachGoal','SHOP_SORT_CHANGE');">
                         <option value="default">По умолчанию</option>
                         <option value="price-asc">По цене (↑)</option>
                         <option value="price-desc">По цене (↓)</option>
@@ -161,8 +182,8 @@
                 </div>
                 
                 <div class="search-box">
-                    <input type="text" placeholder="Поиск..." id="desktopSearchInput">
-                    <button class="search-btn">🔍</button>
+                    <input type="text" placeholder="Поиск..." id="desktopSearchInput" onfocus="ym(105507158,'reachGoal','SHOP_SEARCH_FOCUS');">
+                    <button class="search-btn" onclick="ym(105507158,'reachGoal','SHOP_SEARCH_CLICK');">🔍</button>
                 </div>
             </div>
         </section>
@@ -192,7 +213,7 @@
                             <span class="price">8,500₽</span>
                             <span class="old-price">10,000₽</span>
                         </div>
-                        <button class="add-to-cart" data-product="Боксёрские перчатки Pro 12oz" data-price="8500" data-category="equipment">
+                        <button class="add-to-cart" data-product="Боксёрские перчатки Pro 12oz" data-price="8500" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Боксёрские перчатки Pro 12oz',price:8500,category:'equipment'});">
                             <span>🛒</span> В корзину
                         </button>
                     </div>
@@ -213,7 +234,7 @@
                         <div>
                             <span class="price">6,200₽</span>
                         </div>
-                        <button class="add-to-cart" data-product="Защитный шлем Guardian" data-price="6200" data-category="equipment">
+                        <button class="add-to-cart" data-product="Защитный шлем Guardian" data-price="6200" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Защитный шлем Guardian',price:6200,category:'equipment'});">
                             <span>🛒</span> В корзину
                         </button>
                     </div>
@@ -235,7 +256,7 @@
                             <span class="price">5,600₽</span>
                             <span class="old-price">7,500₽</span>
                         </div>
-                        <button class="add-to-cart" data-product="Боксёрки Speed Pro" data-price="5600" data-category="equipment">
+                        <button class="add-to-cart" data-product="Боксёрки Speed Pro" data-price="5600" data-category="equipment" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Боксёрки Speed Pro',price:5600,category:'equipment'});">
                             <span>🛒</span> В корзину
                         </button>
                     </div>
@@ -258,7 +279,7 @@
                             <span class="price">1,800₽</span>
                             <span class="old-price">2,200₽</span>
                         </div>
-                        <button class="add-to-cart" data-product="Крем для восстановления мышц" data-price="1800" data-category="cosmetic">
+                        <button class="add-to-cart" data-product="Крем для восстановления мышц" data-price="1800" data-category="cosmetic" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Крем для восстановления мышц',price:1800,category:'cosmetic'});">
                             <span>🛒</span> В корзину
                         </button>
                     </div>
@@ -279,7 +300,7 @@
                         <div>
                             <span class="price">1,200₽</span>
                         </div>
-                        <button class="add-to-cart" data-product="Массажное масло для спортсменов" data-price="1200" data-category="cosmetic">
+                        <button class="add-to-cart" data-product="Массажное масло для спортсменов" data-price="1200" data-category="cosmetic" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Массажное масло для спортсменов',price:1200,category:'cosmetic'});">
                             <span>🛒</span> В корзину
                         </button>
                     </div>
@@ -301,7 +322,7 @@
                         <div>
                             <span class="price">4,500₽</span>
                         </div>
-                        <button class="add-to-cart" data-product="Протеин Whey Gold 2кг" data-price="4500" data-category="pharma">
+                        <button class="add-to-cart" data-product="Протеин Whey Gold 2кг" data-price="4500" data-category="pharma" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Протеин Whey Gold 2кг',price:4500,category:'pharma'});">
                             <span>🛒</span> В корзину
                         </button>
                     </div>
@@ -322,7 +343,7 @@
                         <div>
                             <span class="price">2,800₽</span>
                         </div>
-                        <button class="add-to-cart" data-product="Pre-Workout Energy Explosion" data-price="2800" data-category="pharma">
+                        <button class="add-to-cart" data-product="Pre-Workout Energy Explosion" data-price="2800" data-category="pharma" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Pre-Workout Energy Explosion',price:2800,category:'pharma'});">
                             <span>🛒</span> В корзину
                         </button>
                     </div>
@@ -344,7 +365,7 @@
                             <span class="price">2,000₽</span>
                             <span class="old-price">2,500₽</span>
                         </div>
-                        <button class="add-to-cart" data-product="BCAA 8:1:1 (400г)" data-price="2000" data-category="pharma">
+                        <button class="add-to-cart" data-product="BCAA 8:1:1 (400г)" data-price="2000" data-category="pharma" onclick="ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'BCAA 8:1:1 (400г)',price:2000,category:'pharma'});">
                             <span>🛒</span> В корзину
                         </button>
                     </div>
@@ -359,19 +380,19 @@
                 <p>Выберите категорию для подробного просмотра</p>
             </div>
             <div class="categories-promo-grid">
-                <a href="equipment.html" class="category-promo-card equipment-promo">
+                <a href="equipment.html" class="category-promo-card equipment-promo" onclick="ym(105507158,'reachGoal','SHOP_CATEGORY_EQUIPMENT_CLICK');">
                     <div class="category-promo-icon">🥊</div>
                     <h3>Экипировка</h3>
                     <p>Перчатки, шлемы, защита</p>
                     <span class="category-promo-link">Смотреть →</span>
                 </a>
-                <a href="cosmetic.html" class="category-promo-card cosmetic-promo">
+                <a href="cosmetic.html" class="category-promo-card cosmetic-promo" onclick="ym(105507158,'reachGoal','SHOP_CATEGORY_COSMETIC_CLICK');">
                     <div class="category-promo-icon">🧼</div>
                     <h3>Косметика</h3>
                     <p>Кремы, бальзамы, масла</p>
                     <span class="category-promo-link">Смотреть →</span>
                 </a>
-                <a href="pharma.html" class="category-promo-card pharma-promo">
+                <a href="pharma.html" class="category-promo-card pharma-promo" onclick="ym(105507158,'reachGoal','SHOP_CATEGORY_PHARMA_CLICK');">
                     <div class="category-promo-icon">💊</div>
                     <h3>Аптека</h3>
                     <p>Протеины, аминокислоты</p>
@@ -423,14 +444,14 @@
                     <li><a href="equipment.html">Экипировка</a></li>
                     <li><a href="cosmetic.html">Косметика</a></li>
                     <li><a href="pharma.html">Аптека</a></li>
-                    <li><a href="cart.html">Корзина</a></li>
+                    <li><a href="cart.html" onclick="ym(105507158,'reachGoal','SHOP_CART_CLICK'); return true;">Корзина</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Контакты</h4>
                 <ul>
                     <li>📍 г. Пенза, ул. Кураева, 11</li>
-                    <li>📞 <a href="tel:+79374291111">+7 (937) 429-11-11</a></li>
+                    <li>📞 <a href="tel:+79374291111" onclick="ym(105507158,'reachGoal','SHOP_PHONE_CLICK'); return true;">+7 (937) 429-11-11</a></li>
                     <li>Федерация бокса г. Пенза</li>
                 </ul>
             </div>
