@@ -9,6 +9,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥊</text></svg>">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/catalog.css">
+    
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
@@ -19,7 +20,6 @@
         })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105507158', 'ym');
 
         ym(105507158, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-        // Уникальное действие для страницы экипировки
         ym(105507158, 'hit', window.location.href, {
             title: 'Экипировка — Каталог товаров',
             referer: document.referrer
@@ -27,8 +27,8 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/105507158" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+    
 	<style>
-        /* Стили только для герой-секции с изображением */
         .hero {
             position: relative;
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
@@ -51,6 +51,7 @@
 </head>
 <body>
     <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
+    
     <header role="banner">
         <div class="nav">
             <a href="index.html" class="logo">
@@ -72,10 +73,16 @@
                         <a href="pharma.html">💊 Аптека</a>
                     </div>
                 </div>
-                <a href="https://dzen.ru/ring_boxin_club?share_to=link">Блог</a>
+                <div class="menu-item-has-children">
+                    <a href="#blog">Блог</a>
+                    <div class="sub-menu">
+                        <a href="articles.html">📝 Статьи</a>
+                        <a href="https://rutube.ru/channel/23770571/" target="_blank">📹 Rutube</a>
+                    </div>
+                </div>
                 <a href="index.html#contacts">Контакты</a>
             </nav>
-            <a href="cart.html" class="cart-btn" aria-label="Корзина" onclick="ym(105507158,'reachGoal','EQUIP_CART_CLICK'); return true;">
+            <a href="cart.html" class="cart-btn" aria-label="Корзина">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 6h2l.4 2M7 13h9l1.5-6h-13L7 13zM7 17a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm8 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" 
                           stroke="#C8B273" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -84,4 +91,121 @@
             </a>
         </div>
     </header>
+
     <main id="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">🥊 Экипировка</div>
+                <h1>Боксёрская экипировка</h1>
+                <p>Профессиональное снаряжение для тренировок и соревнований</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="products-header">
+                <h2>Каталог экипировки</h2>
+                <p>Выберите профессиональное снаряжение</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card equipment">
+                    <div class="product-badge bestseller">ХИТ</div>
+                    <div class="product-image">
+                        <img src="generated-image (3).png" alt="Боксёрские перчатки" loading="lazy">
+                    </div>
+                    <div class="product-category">
+                        <span>🥊</span> Экипировка
+                    </div>
+                    <h3 class="product-title">Боксёрские перчатки Pro</h3>
+                    <p class="product-description">Профессиональные перчатки для тренировок и спаррингов</p>
+                    <div class="product-price">
+                        <div>
+                            <span class="price">8,500₽</span>
+                            <span class="old-price">10,000₽</span>
+                        </div>
+                        <button class="add-to-cart" data-product="Боксёрские перчатки Pro" data-price="8500" data-category="equipment">
+                            <span>🛍️</span> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card equipment">
+                    <div class="product-badge new">NEW</div>
+                    <div class="product-image">
+                        <img src="generated-image (2).png" alt="Защитный шлем" loading="lazy">
+                    </div>
+                    <div class="product-category">
+                        <span>🥊</span> Экипировка
+                    </div>
+                    <h3 class="product-title">Защитный шлем</h3>
+                    <p class="product-description">Профессиональный шлем для спаррингов</p>
+                    <div class="product-price">
+                        <div>
+                            <span class="price">6,200₽</span>
+                        </div>
+                        <button class="add-to-cart" data-product="Защитный шлем" data-price="6200" data-category="equipment">
+                            <span>🛍️</span> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card equipment">
+                    <div class="product-badge new">NEW</div>
+                    <div class="product-image">
+                        <img src="generated-image.png" alt="Капа" loading="lazy">
+                    </div>
+                    <div class="product-category">
+                        <span>🥊</span> Защита
+                    </div>
+                    <h3 class="product-title">Капа Shield Pro</h3>
+                    <p class="product-description">Двухчелюстная капа из медицинского силикона</p>
+                    <div class="product-price">
+                        <div>
+                            <span class="price">1,800₽</span>
+                        </div>
+                        <button class="add-to-cart" data-product="Капа Shield Pro" data-price="1800" data-category="equipment">
+                            <span>🛍️</span> В корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>О клубе</h4>
+                <ul>
+                    <li><a href="index.html#about">О CLUB RING</a></li>
+                    <li><a href="index.html#trainer">Наш тренер</a></li>
+                    <li><a href="index.html#services">Направления</a></li>
+                    <li><a href="index.html#contacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Магазин</h4>
+                <ul>
+                    <li><a href="equipment.html">Экипировка</a></li>
+                    <li><a href="cosmetic.html">Косметика</a></li>
+                    <li><a href="pharma.html">Аптека</a></li>
+                    <li><a href="cart.html">Корзина</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>📍 г. Пенза, ул. Кураева, 11</li>
+                    <li>📞 <a href="tel:+79374291111" onclick="ym(105507158,'reachGoal','PHONE_CLICK'); return true;">+7 (937) 429-11-11</a></li>
+                    <li>Федерация Бокса г. Пенза</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Боксёрский клуб RING. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
