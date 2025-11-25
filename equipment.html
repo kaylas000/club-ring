@@ -18,12 +18,8 @@
             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
         })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105507158', 'ym');
-
         ym(105507158, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-        ym(105507158, 'hit', window.location.href, {
-            title: 'Экипировка — Каталог товаров',
-            referer: document.referrer
-        });
+        ym(105507158, 'hit', window.location.href, {title: 'Экипировка — Каталог товаров', referer: document.referrer});
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/105507158" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
@@ -31,22 +27,11 @@
 	<style>
         .hero {
             position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                        url('rg.png') center/cover no-repeat;
-            color: white;
-            padding: 120px 20px;
-            text-align: center;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('rg.png') center/cover no-repeat;
+            color: white; padding: 120px 20px; text-align: center; min-height: 70vh;
+            display: flex; align-items: center; justify-content: center;
         }
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 15px;
-                min-height: 60vh;
-            }
-        }
+        @media (max-width: 768px) { .hero { padding: 80px 15px; min-height: 60vh; } }
     </style>
 </head>
 <body>
@@ -54,13 +39,9 @@
     
     <header role="banner">
         <div class="nav">
-            <a href="index.html" class="logo">
-                <span>RING</span> BOXING CLUB
-            </a>
+            <a href="index.html" class="logo"><span>RING</span> BOXING CLUB</a>
             <div class="hamburger" aria-label="Меню" role="button" aria-expanded="false">
-                <div></div>
-                <div></div>
-                <div></div>
+                <div></div><div></div><div></div>
             </div>
             <nav class="menu" role="navigation" aria-label="Основное меню">
                 <a href="index.html">Главная</a>
@@ -95,9 +76,56 @@
     <main id="main-content">
         <section class="hero">
             <div class="hero-content">
-                <div class="hero-badge">🥊 Экипировка</div>
+                <div class="hero-badge">🥊 ЭКИПИРОВКА</div>
                 <h1>Боксёрская экипировка</h1>
                 <p>Профессиональное снаряжение для тренировок и соревнований</p>
+            </div>
+        </section>
+
+        <!-- MOBILE FILTERS -->
+        <div class="mobile-filters">
+            <div class="mobile-filter-header" id="mobileFilterToggle">
+                <div class="mobile-filter-title"><span>🔍</span> Фильтр и поиск</div>
+                <div class="mobile-filter-toggle">▼</div>
+            </div>
+            <div class="mobile-filters-container" id="mobileFiltersContainer">
+                <div class="mobile-filters-content">
+                    <div class="mobile-search-box">
+                        <input type="text" placeholder="Поиск..." id="mobileSearchInput">
+                        <button class="mobile-search-btn">🔍</button>
+                    </div>
+                    <div class="mobile-filter-section">
+                        <div class="mobile-filter-section-title"><span>🏷️</span> Фильтр</div>
+                        <div class="mobile-filter-buttons">
+                            <button class="mobile-filter-btn active" data-filter="all">Все</button>
+                            <button class="mobile-filter-btn" data-filter="new">Новинки</button>
+                            <button class="mobile-filter-btn" data-filter="popular">Популярное</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILTERS SECTION -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="new">Новинки</button>
+                    <button class="filter-btn" data-filter="popular">Популярное</button>
+                </div>
+                <div class="sorting">
+                    <select aria-label="Сортировка">
+                        <option value="default">По умолчанию</option>
+                        <option value="name">По названию</option>
+                        <option value="price-asc">Сначала дешёвые</option>
+                        <option value="price-desc">Сначала дорогие</option>
+                    </select>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Поиск..." id="desktopSearchInput">
+                    <button class="search-btn">🔍</button>
+                </div>
             </div>
         </section>
 
@@ -108,14 +136,12 @@
             </div>
 
             <div class="products-grid">
-                <div class="product-card equipment">
+                <div class="product-card equipment" data-status="popular">
                     <div class="product-badge bestseller">ХИТ</div>
                     <div class="product-image">
                         <img src="generated-image (3).png" alt="Боксёрские перчатки" loading="lazy">
                     </div>
-                    <div class="product-category">
-                        <span>🥊</span> Экипировка
-                    </div>
+                    <div class="product-category"><span>🥊</span> Экипировка</div>
                     <h3 class="product-title">Боксёрские перчатки Pro</h3>
                     <p class="product-description">Профессиональные перчатки для тренировок и спаррингов</p>
                     <div class="product-price">
@@ -129,40 +155,32 @@
                     </div>
                 </div>
 
-                <div class="product-card equipment">
+                <div class="product-card equipment" data-status="new">
                     <div class="product-badge new">NEW</div>
                     <div class="product-image">
                         <img src="generated-image (2).png" alt="Защитный шлем" loading="lazy">
                     </div>
-                    <div class="product-category">
-                        <span>🥊</span> Экипировка
-                    </div>
+                    <div class="product-category"><span>🥊</span> Экипировка</div>
                     <h3 class="product-title">Защитный шлем</h3>
                     <p class="product-description">Профессиональный шлем для спаррингов</p>
                     <div class="product-price">
-                        <div>
-                            <span class="price">6,200₽</span>
-                        </div>
+                        <div><span class="price">6,200₽</span></div>
                         <button class="add-to-cart" data-product="Защитный шлем" data-price="6200" data-category="equipment">
                             <span>🛍️</span> В корзину
                         </button>
                     </div>
                 </div>
 
-                <div class="product-card equipment">
+                <div class="product-card equipment" data-status="new">
                     <div class="product-badge new">NEW</div>
                     <div class="product-image">
                         <img src="generated-image.png" alt="Капа" loading="lazy">
                     </div>
-                    <div class="product-category">
-                        <span>🥊</span> Защита
-                    </div>
+                    <div class="product-category"><span>🥊</span> Защита</div>
                     <h3 class="product-title">Капа Shield Pro</h3>
                     <p class="product-description">Двухчелюстная капа из медицинского силикона</p>
                     <div class="product-price">
-                        <div>
-                            <span class="price">1,800₽</span>
-                        </div>
+                        <div><span class="price">1,800₽</span></div>
                         <button class="add-to-cart" data-product="Капа Shield Pro" data-price="1800" data-category="equipment">
                             <span>🛍️</span> В корзину
                         </button>
