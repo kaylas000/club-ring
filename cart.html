@@ -68,40 +68,76 @@
     </header>
 
     <main class="cart-page">
-        <div class="cart-container">
-            <h1>🛍️ Корзина покупок</h1>
-            
-            <div class="cart-content">
-                <div class="cart-items" id="cartItems">
-                    <div class="empty-cart">
-                        <div class="empty-icon">🛍️</div>
-                        <h2>Ваша корзина пуста</h2>
-                        <p>Добавьте товары в корзину, чтобы начать покупки</p>
-                        <a href="shop.html" class="btn-primary">Перейти в магазин</a>
+        <section class="cart-content">
+            <div class="cart-container">
+                <div class="cart-items">
+                    <div class="cart-header">
+                        <h1 class="cart-title">🛒 Корзина</h1>
+                        <span class="cart-count-badge" id="cartCountBadge">0 товаров</span>
+                    </div>
+                    <div id="cartItemsList">
+                        <div class="empty-cart">
+                            <div class="empty-cart-icon">🛒</div>
+                            <h3>Ваша корзина пуста</h3>
+                            <p>Добавьте товары из магазина</p>
+                            <a href="shop.html" class="btn-primary">Перейти в магазин</a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="cart-summary" id="cartSummary" style="display: none;">
+                <div class="cart-summary">
                     <h3>Итого</h3>
+                    
                     <div class="summary-row">
-                        <span>Товаров:</span>
-                        <span id="totalItems">0</span>
+                        <span>Сумма товаров:</span>
+                        <span id="subtotalAmount">0₽</span>
                     </div>
+                    
+                    <div class="delivery-options">
+                        <h4 style="font-size: 1rem; color: var(--gold-metal); margin-bottom: 10px;">Доставка:</h4>
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery" value="0" checked>
+                            <div class="option-content">
+                                <div>Самовывоз</div>
+                                <small style="color: var(--silver-bright);">ул. Кураева, 11</small>
+                            </div>
+                            <span class="option-price">Бесплатно</span>
+                        </label>
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery" value="300">
+                            <div class="option-content">
+                                <div>Доставка по Пензе</div>
+                                <small style="color: var(--silver-bright);">в течение 1-2 дней</small>
+                            </div>
+                            <span class="option-price">300₽</span>
+                        </label>
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery" value="500">
+                            <div class="option-content">
+                                <div>Доставка по России</div>
+                                <small style="color: var(--silver-bright);">от 3 до 7 дней</small>
+                            </div>
+                            <span class="option-price">от 500₽</span>
+                        </label>
+                    </div>
+                    
                     <div class="summary-row">
-                        <span>Сумма:</span>
-                        <span id="totalPrice">0₽</span>
+                        <span>Доставка:</span>
+                        <span id="deliveryAmount">0₽</span>
                     </div>
+                    
                     <div class="summary-total">
                         <span>К оплате:</span>
-                        <span id="finalPrice">0₽</span>
+                        <span id="totalAmount">0₽</span>
                     </div>
-                    <button class="btn-checkout" id="checkoutBtn" onclick="ym(105507158,'reachGoal','CHECKOUT_CLICK'); window.location.href='order.html';">
-                        Оформить заказ
+                    
+                    <button class="checkout-btn" id="checkoutBtn" disabled>
+                        Оформить заказ <span id="checkoutTotal">0₽</span>
                     </button>
                     <a href="shop.html" class="continue-shopping">Продолжить покупки</a>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer role="contentinfo">
