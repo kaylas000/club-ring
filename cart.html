@@ -8,6 +8,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥊</text></svg>">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cart.css">
+    
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
@@ -24,26 +25,120 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/105507158" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-	<style>
-        /* Стили только для герой-секции с изображением */
-        .hero {
-            position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                        url('rg.png') center/cover no-repeat;
-            color: white;
-            padding: 120px 20px;
-            text-align: center;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 15px;
-                min-height: 60vh;
-            }
-        }
-    </style>
 </head>
 <body>
+    <header role="banner">
+        <div class="nav">
+            <a href="index.html" class="logo">
+                <span>RING</span> BOXING CLUB
+            </a>
+            <div class="hamburger" aria-label="Меню" role="button" aria-expanded="false">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav class="menu" role="navigation" aria-label="Основное меню">
+                <a href="index.html">Главная</a>
+                <a href="index.html#about">О клубе</a>
+                <div class="menu-item-has-children">
+                    <a href="shop.html">Магазин</a>
+                    <div class="sub-menu">
+                        <a href="equipment.html">🥊 Экипировка</a>
+                        <a href="cosmetic.html">🧼 Косметика</a>
+                        <a href="pharma.html">💊 Аптека</a>
+                    </div>
+                </div>
+                <div class="menu-item-has-children">
+                    <a href="#blog">Блог</a>
+                    <div class="sub-menu">
+                        <a href="articles.html">📝 Статьи</a>
+                        <a href="https://rutube.ru/channel/23770571/" target="_blank">📹 Rutube</a>
+                    </div>
+                </div>
+                <a href="index.html#contacts">Контакты</a>
+            </nav>
+            <a href="cart.html" class="cart-btn" aria-label="Корзина" aria-current="page">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 6h2l.4 2M7 13h9l1.5-6h-13L7 13zM7 17a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm8 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" 
+                          stroke="#C8B273" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <div class="cart-container">
+            <h1>🛍️ Корзина покупок</h1>
+            
+            <div class="cart-content">
+                <div class="cart-items" id="cartItems">
+                    <div class="empty-cart">
+                        <div class="empty-icon">🛍️</div>
+                        <h2>Ваша корзина пуста</h2>
+                        <p>Добавьте товары в корзину, чтобы начать покупки</p>
+                        <a href="shop.html" class="btn-primary">Перейти в магазин</a>
+                    </div>
+                </div>
+                
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <h3>Итого</h3>
+                    <div class="summary-row">
+                        <span>Товаров:</span>
+                        <span id="totalItems">0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Сумма:</span>
+                        <span id="totalPrice">0₽</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>К оплате:</span>
+                        <span id="finalPrice">0₽</span>
+                    </div>
+                    <button class="btn-checkout" id="checkoutBtn" onclick="ym(105507158,'reachGoal','CHECKOUT_CLICK'); window.location.href='order.html';">
+                        Оформить заказ
+                    </button>
+                    <a href="shop.html" class="continue-shopping">Продолжить покупки</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>О клубе</h4>
+                <ul>
+                    <li><a href="index.html#about">О CLUB RING</a></li>
+                    <li><a href="index.html#trainer">Наш тренер</a></li>
+                    <li><a href="index.html#services">Направления</a></li>
+                    <li><a href="index.html#contacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Магазин</h4>
+                <ul>
+                    <li><a href="equipment.html">Экипировка</a></li>
+                    <li><a href="cosmetic.html">Косметика</a></li>
+                    <li><a href="pharma.html">Аптека</a></li>
+                    <li><a href="cart.html">Корзина</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>📍 г. Пенза, ул. Кураева, 11</li>
+                    <li>📞 <a href="tel:+79374291111" onclick="ym(105507158,'reachGoal','PHONE_CLICK'); return true;">+7 (937) 429-11-11</a></li>
+                    <li>Федерация Бокса г. Пенза</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Боксёрский клуб RING. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
