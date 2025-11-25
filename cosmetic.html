@@ -18,12 +18,8 @@
             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
         })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105507158', 'ym');
-
         ym(105507158, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-        ym(105507158, 'hit', window.location.href, {
-            title: 'Косметика — Каталог товаров',
-            referer: document.referrer
-        });
+        ym(105507158, 'hit', window.location.href, {title: 'Косметика — Каталог товаров', referer: document.referrer});
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/105507158" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
@@ -31,22 +27,11 @@
 	<style>
         .hero {
             position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                        url('rg.png') center/cover no-repeat;
-            color: white;
-            padding: 120px 20px;
-            text-align: center;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('rg.png') center/cover no-repeat;
+            color: white; padding: 120px 20px; text-align: center; min-height: 70vh;
+            display: flex; align-items: center; justify-content: center;
         }
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 15px;
-                min-height: 60vh;
-            }
-        }
+        @media (max-width: 768px) { .hero { padding: 80px 15px; min-height: 60vh; } }
     </style>
 </head>
 <body>
@@ -54,13 +39,9 @@
     
     <header role="banner">
         <div class="nav">
-            <a href="index.html" class="logo">
-                <span>RING</span> BOXING CLUB
-            </a>
+            <a href="index.html" class="logo"><span>RING</span> BOXING CLUB</a>
             <div class="hamburger" aria-label="Меню" role="button" aria-expanded="false">
-                <div></div>
-                <div></div>
-                <div></div>
+                <div></div><div></div><div></div>
             </div>
             <nav class="menu" role="navigation" aria-label="Основное меню">
                 <a href="index.html">Главная</a>
@@ -95,9 +76,56 @@
     <main id="main-content">
         <section class="hero">
             <div class="hero-content">
-                <div class="hero-badge">🧼 Косметика</div>
+                <div class="hero-badge">🧼 КОСМЕТИКА</div>
                 <h1>Спортивная косметика</h1>
                 <p>Профессиональный уход для восстановления после тренировок</p>
+            </div>
+        </section>
+
+        <!-- MOBILE FILTERS -->
+        <div class="mobile-filters">
+            <div class="mobile-filter-header" id="mobileFilterToggle">
+                <div class="mobile-filter-title"><span>🔍</span> Фильтр и поиск</div>
+                <div class="mobile-filter-toggle">▼</div>
+            </div>
+            <div class="mobile-filters-container" id="mobileFiltersContainer">
+                <div class="mobile-filters-content">
+                    <div class="mobile-search-box">
+                        <input type="text" placeholder="Поиск..." id="mobileSearchInput">
+                        <button class="mobile-search-btn">🔍</button>
+                    </div>
+                    <div class="mobile-filter-section">
+                        <div class="mobile-filter-section-title"><span>🏷️</span> Фильтр</div>
+                        <div class="mobile-filter-buttons">
+                            <button class="mobile-filter-btn active" data-filter="all">Все</button>
+                            <button class="mobile-filter-btn" data-filter="new">Новинки</button>
+                            <button class="mobile-filter-btn" data-filter="popular">Популярное</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILTERS SECTION -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="new">Новинки</button>
+                    <button class="filter-btn" data-filter="popular">Популярное</button>
+                </div>
+                <div class="sorting">
+                    <select aria-label="Сортировка">
+                        <option value="default">По умолчанию</option>
+                        <option value="name">По названию</option>
+                        <option value="price-asc">Сначала дешёвые</option>
+                        <option value="price-desc">Сначала дорогие</option>
+                    </select>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Поиск..." id="desktopSearchInput">
+                    <button class="search-btn">🔍</button>
+                </div>
             </div>
         </section>
 
@@ -108,14 +136,12 @@
             </div>
 
             <div class="products-grid">
-                <div class="product-card cosmetic">
+                <div class="product-card cosmetic" data-status="new">
                     <div class="product-badge new">NEW</div>
                     <div class="product-image">
                         <img src="Охлаждающий гель Ice Pro.png" alt="Охлаждающий гель" loading="lazy">
                     </div>
-                    <div class="product-category">
-                        <span>🧼</span> Косметика
-                    </div>
+                    <div class="product-category"><span>🧼</span> Косметика</div>
                     <h3 class="product-title">Охлаждающий гель Ice Pro</h3>
                     <p class="product-description">Мгновенное охлаждение и снятие боли после тренировок</p>
                     <div class="product-price">
