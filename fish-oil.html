@@ -484,7 +484,7 @@
                 </div>
 
                 <div class="product-detail-actions">
-                    <button class="btn-primary" onclick="addToCart('Рыбий жир Omega-3 Premium', 1200, 'pharma'); ym(105507158,'reachGoal','SHOP_ADD_TO_CART',{product:'Рыбий жир Omega-3 Premium',price:1200,category:'pharma'});">
+                    <button class="btn-primary add-to-cart" data-product="Рыбий жир Omega-3 Premium" data-price="1200" data-category="pharma">
                         <span>🛒</span> Добавить в корзину
                     </button>
                     <button class="btn-secondary" onclick="window.location.href='cart.html'">
@@ -681,43 +681,6 @@
         // Add active class to clicked button
         event.target.classList.add('active');
     }
-
-    function addToCart(productName, price, category) {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        const existingItem = cart.find(item => item.name === productName);
-        
-        if (existingItem) {
-            existingItem.quantity++;
-        } else {
-            cart.push({
-                name: productName,
-                price: price,
-                quantity: 1,
-                category: category
-            });
-        }
-        
-        localStorage.setItem('cart', JSON.stringify(cart));
-        
-        // Update cart count
-        updateCartCount();
-        
-        // Show notification
-        alert('✅ Товар добавлен в корзину!');
-    }
-
-    function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const cartCountElement = document.querySelector('.cart-count');
-        if (cartCountElement) {
-            cartCountElement.textContent = totalItems;
-        }
-    }
-
-    // Update cart count on page load
-    document.addEventListener('DOMContentLoaded', updateCartCount);
 </script>
 </body>
 </html>
