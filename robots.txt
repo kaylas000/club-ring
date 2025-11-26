@@ -1,0 +1,56 @@
+# robots.txt для club-ring.ru
+# RING BOXING CLUB - Боксёрский клуб в Пензе
+
+# Правила для всех роботов
+User-agent: *
+
+# Разрешаем индексировать всё
+Allow: /
+
+# Запрещаем индексировать корзину (дублирует meta robots=noindex)
+Disallow: /cart.html
+Disallow: /order.html
+Disallow: /order-confirm.html
+
+# Запрещаем технические файлы
+Disallow: /css/
+Disallow: /js/
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Запрещаем служебные файлы
+Disallow: /*.md$
+Disallow: /README.md
+Disallow: /CHECKLIST.md
+Disallow: /STRUCTURE.md
+
+# Разрешаем изображения (для Google Images, Yandex Картинки)
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Ссылка на Sitemap
+Sitemap: https://club-ring.ru/sitemap.xml
+
+# Дополнительные правила для Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /cart.html
+Disallow: /order.html
+Crawl-delay: 1
+Sitemap: https://club-ring.ru/sitemap.xml
+
+# Правила для Google
+User-agent: Googlebot
+Allow: /
+Disallow: /cart.html
+Disallow: /order.html
+
+# Правила для Google Images
+User-agent: Googlebot-Image
+Allow: /
+
+# Хост (главное зеркало)
+Host: club-ring.ru
