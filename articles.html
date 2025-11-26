@@ -101,65 +101,27 @@
             </div>
         </section>
 
-        <!-- BLOG SECTION -->
+        <!-- BLOG SECTION (Автоматическая загрузка ВСЕХ статей) -->
         <section id="blog" class="blog-section">
             <div class="section-header">
                 <h2>Каталог статей</h2>
                 <p class="section-subtitle">Читайте интересные материалы о боксе</p>
             </div>
 
-            <div class="blog-grid">
-                <!-- НОВАЯ СТАТЬЯ -->
-                <article class="blog-card">
-                    <div class="blog-date">26 ноября</div>
-                    <h3>Тайсон vs. Холифилд: Противостояние эпохи, изменившее бокс</h3>
-                    <p>История величайшего соперничества в боксе: путь двух чемпионов, драма их дуэлей и главное противостояние, изменившее спорт навсегда.</p>
-                    <div class="blog-meta">
-                        <span class="category gold">Анализ боёв</span>
-                        <a href="tyson-holyfield-rivalry-epoch.html" class="read-more">Читать →</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-date">26 ноября</div>
-                    <h3>Рияд как новая столица бокса: ночь чемпионов в ANB Arena</h3>
-                    <p>22 ноября крупнейшее шоу «Night of Champions» в Эр-Рияде собрало сразу несколько чемпионских боёв, включая защиту титула Бенавидесом и историческую победу Хэйни в третьем дивизионе...</p>
-                    <div class="blog-meta">
-                        <span class="category gold">Анализ боёв</span>
-                        <a href="boxing-riyadh-night-of-champions.html" class="read-more">Читать →</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-date">18 ноября</div>
-                    <h3>Первый бой Тайсона и Холифилда: названный «Наконец-то»</h3>
-                    <p>В истории бокса есть матчи, которые становятся легендой не только из-за зрелищности, но и из-за эмоций, драмы и неожиданных поворотов и предыстории. Один из таких поединков — первый бой Майка Тайсона и Эвандера Холифилда.</p>
-                    <div class="blog-meta">
-                        <span class="category gold">Мотивация</span>
-                        <a href="https://dzen.ru/a/aB8nMPTGHU7JTgHs?share_to=link" class="read-more" target="_blank">Читать →</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-date">15 ноября</div>
-                    <h3>«Неоконченное дело»: Леннокс Льюис против Холифилда 2 бой.</h3>
-                    <p>13 ноября 1999 года в Лас-Вегасе случилось то, что должно было произойти ещё восемь месяцев назад. Леннокс Льюис и Эвандер Холифилд снова сошлись в ринге, но на этот раз судьи не стали мудрить.</p>
-                    <div class="blog-meta">
-                        <span class="category silver">Методика</span>
-                        <a href="https://dzen.ru/a/aB-QALK-e1zbWMBG?share_to=link" class="read-more" target="_blank">Читать →</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-date">12 ноября</div>
-                    <h3>Туа vs Ибеабучи: 12 раундов ада, которые навсегда вошли в историю бокса.</h3>
-                    <p>Июнь 1997 года, калифорнийский Casino Magic. Два непобежденных танка с кувалдами вместо рук — Дэвид Туа и Ике Ибеабучи — сошлись в бою, который не оставил прежними ни зрителей, ни самих бойцов.</p>
-                    <div class="blog-meta">
-                        <span class="category gold">Анализ</span>
-                        <a href="https://dzen.ru/a/aBxqbKDMFXODwUSE?share_to=link" class="read-more" target="_blank">Читать →</a>
-                    </div>
-                </article>
-            </div>
+            <!-- Каталог всех статей (автоматическая загрузка) -->
+            <div id="articles-catalog" class="blog-grid"></div>
+
+            <script src="js/articles-data.js"></script>
+            <script>
+                // Загрузка ВСЕХ статей из базы данных
+                (function() {
+                    const catalog = document.getElementById('articles-catalog');
+                    const allArticles = getAllArticles();
+                    allArticles.forEach(article => {
+                        catalog.innerHTML += generateArticleCard(article);
+                    });
+                })();
+            </script>
         </section>
     </main>
 
