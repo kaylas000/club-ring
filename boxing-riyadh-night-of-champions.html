@@ -23,53 +23,55 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/105507158" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     
     <style>
-        .breadcrumbs {
-            padding: 20px 0;
-            background: var(--black2);
-            border-bottom: 1px solid rgba(200, 178, 115, 0.1);
+        /* Article-specific styles */
+        .article-page {
+            background: var(--black);
+            padding: 60px 0;
         }
-        .breadcrumbs-container {
+        
+        .article-container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+        
+        .article-breadcrumbs {
             display: flex;
             gap: 8px;
             align-items: center;
-            flex-wrap: wrap;
+            margin-bottom: 30px;
             font-size: 0.9rem;
-            color: var(--silver-bright);
+            color: var(--silver-metal);
         }
-        .breadcrumbs a {
+        
+        .article-breadcrumbs a {
             color: var(--gold-metal);
             text-decoration: none;
             transition: color 0.2s;
         }
-        .breadcrumbs a:hover {
+        
+        .article-breadcrumbs a:hover {
             color: var(--gold-bright);
         }
-        .article-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            background: var(--black);
-        }
+        
         .article-header {
             margin-bottom: 40px;
-            border-bottom: 2px solid rgba(200, 178, 115, 0.2);
             padding-bottom: 30px;
+            border-bottom: 2px solid rgba(200, 178, 115, 0.2);
         }
-        .article-category {
+        
+        .article-category-badge {
             display: inline-block;
             background: var(--gold-metal);
             color: var(--black);
             padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: 700;
             margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
+        
         .article-title {
             font-size: 2.5rem;
             color: var(--gold-metal);
@@ -77,30 +79,28 @@
             margin-bottom: 15px;
             line-height: 1.2;
         }
+        
         .article-subtitle {
             font-size: 1.25rem;
-            color: var(--silver-bright);
-            font-weight: 400;
+            color: var(--silver-metal);
             margin-bottom: 20px;
             line-height: 1.5;
         }
-        .article-meta {
+        
+        .article-meta-info {
             display: flex;
             gap: 20px;
             font-size: 0.9rem;
-            color: var(--text-gray);
+            color: #999;
             flex-wrap: wrap;
         }
-        .article-meta span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+        
         .article-content {
-            color: var(--text-gray);
+            color: #aaa;
             font-size: 1.1rem;
             line-height: 1.8;
         }
+        
         .article-content h2 {
             color: var(--gold-metal);
             font-size: 1.8rem;
@@ -109,20 +109,23 @@
             padding-top: 30px;
             border-top: 1px solid rgba(200, 178, 115, 0.1);
         }
-        .article-content h2:first-child {
+        
+        .article-content h2:first-of-type {
             margin-top: 0;
             padding-top: 0;
             border-top: none;
         }
+        
         .article-content p {
             margin-bottom: 20px;
         }
+        
         .article-icon {
             font-size: 3rem;
             text-align: center;
             margin: 30px 0;
-            filter: drop-shadow(0 0 10px rgba(200, 178, 115, 0.3));
         }
+        
         .author-box {
             background: rgba(200, 178, 115, 0.05);
             border-left: 4px solid var(--gold-metal);
@@ -130,81 +133,17 @@
             margin: 50px 0;
             border-radius: 8px;
         }
+        
         .author-box h3 {
             color: var(--gold-metal);
             margin-bottom: 10px;
-            font-size: 1.2rem;
         }
-        .share-buttons {
-            background: var(--black2);
-            padding: 30px;
-            border-radius: 12px;
-            margin: 40px 0;
-            text-align: center;
+        
+        .author-box p {
+            color: #aaa;
         }
-        .share-buttons h3 {
-            color: var(--gold-metal);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-        .share-buttons-grid {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .share-btn {
-            background: rgba(200, 178, 115, 0.1);
-            border: 2px solid var(--gold-metal);
-            color: var(--gold-metal);
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
-            display: inline-block;
-        }
-        .share-btn:hover {
-            background: var(--gold-metal);
-            color: var(--black);
-        }
-        .related-articles {
-            margin: 50px 0;
-        }
-        .related-articles h3 {
-            color: var(--gold-metal);
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .related-card {
-            background: var(--black2);
-            border: 2px solid rgba(200, 178, 115, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: block;
-        }
-        .related-card:hover {
-            border-color: var(--gold-metal);
-            transform: translateY(-4px);
-        }
-        .related-card h4 {
-            color: var(--gold-metal);
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-        .related-card p {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-        .back-button {
+        
+        .back-to-catalog {
             display: inline-block;
             background: linear-gradient(90deg, #23221a 0%, #373125 100%);
             border: 2px solid var(--gold-metal);
@@ -213,15 +152,16 @@
             border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
             transition: all 0.3s;
             margin: 40px 0;
         }
-        .back-button:hover {
+        
+        .back-to-catalog:hover {
             background: var(--gold-metal);
             color: var(--black);
             box-shadow: 0 0 20px rgba(200, 178, 115, 0.4);
         }
+        
         @media (max-width: 768px) {
             .article-title {
                 font-size: 1.8rem;
@@ -263,7 +203,7 @@
                 <div class="menu-item-has-children">
                     <a href="#blog">Блог</a>
                     <div class="sub-menu">
-                        <a href="articles.html" aria-current="page">📝 Статьи</a>
+                        <a href="articles.html">📝 Статьи</a>
                         <a href="https://rutube.ru/channel/23770571/" target="_blank">📹 Rutube</a>
                     </div>
                 </div>
@@ -279,26 +219,23 @@
         </div>
     </header>
 
-    <section class="breadcrumbs">
-        <div class="breadcrumbs-container">
-            <a href="index.html">Главная</a>
-            <span>/</span>
-            <a href="articles.html">Каталог статей</a>
-            <span>/</span>
-            <span>Рияд как новая столица бокса</span>
-        </div>
-    </section>
-
-    <main>
+    <main class="article-page">
         <article class="article-container">
+            <div class="article-breadcrumbs">
+                <a href="index.html">Главная</a>
+                <span>/</span>
+                <a href="articles.html">Каталог статей</a>
+                <span>/</span>
+                <span>Рияд как новая столица бокса</span>
+            </div>
+
             <header class="article-header">
-                <div class="article-category">Анализ боёв</div>
+                <div class="article-category-badge">Анализ боёв</div>
                 <h1 class="article-title">Рияд как новая столица бокса: ночь чемпионов в ANB Arena</h1>
                 <p class="article-subtitle">22 ноября Эр-Рияд вновь подтвердил статус главного центра притяжения для топ-уровня мирового профессионального бокса</p>
-                <div class="article-meta">
+                <div class="article-meta-info">
                     <span>📅 26 ноября 2025</span>
                     <span>⏱️ 8 минут чтения</span>
-                    <span>📂 Анализ боёв</span>
                 </div>
             </header>
 
@@ -338,36 +275,7 @@
                 <p>RING BOXING CLUB — независимый информационный проект клуба бокса в Пензе, регулярно освещающий события в мире профессионального бокса. Статьи подготовлены на основе результатов боёв, интервью, рейтингов и открытых источников информации.</p>
             </div>
 
-            <div class="share-buttons">
-                <h3>📤 Поделиться статьёй</h3>
-                <div class="share-buttons-grid">
-                    <a href="#" class="share-btn">📘 Facebook</a>
-                    <a href="#" class="share-btn">𝕏 Twitter</a>
-                    <a href="#" class="share-btn">📷 Instagram</a>
-                    <a href="#" class="share-btn">📱 Telegram</a>
-                    <a href="#" class="share-btn">🔗 Копировать ссылку</a>
-                </div>
-            </div>
-
-            <div class="related-articles">
-                <h3>📚 Похожие статьи</h3>
-                <div class="related-grid">
-                    <a href="#" class="related-card">
-                        <h4>Джейк Пол против Энтони Джошуа: столкновение миров</h4>
-                        <p>📅 25 ноября 2025</p>
-                    </a>
-                    <a href="#" class="related-card">
-                        <h4>Топ молодых звёзд: Бам Родригес и Абдулла Мейсон идут на титулы</h4>
-                        <p>📅 23 ноября 2025</p>
-                    </a>
-                    <a href="#" class="related-card">
-                        <h4>Полусредний вес 2025: возвращение Хэйни и новые претенденты</h4>
-                        <p>📅 20 ноября 2025</p>
-                    </a>
-                </div>
-            </div>
-
-            <a href="articles.html" class="back-button">← Вернуться в каталог статей</a>
+            <a href="articles.html" class="back-to-catalog">← Вернуться в каталог статей</a>
         </article>
     </main>
 
