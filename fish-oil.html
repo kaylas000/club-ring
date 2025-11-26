@@ -488,7 +488,7 @@
                     <button class="btn-primary add-to-cart" data-product="Рыбий жир Omega-3 Premium" data-price="1200" data-category="pharma">
                         <span>🛒</span> Добавить в корзину
                     </button>
-                    <button class="btn-secondary" onclick="window.location.href='cart.html'">
+                    <button class="btn-secondary" onclick="buyNow('Рыбий жир Omega-3 Premium', 1200, 'pharma')">
                         <span>💳</span> Купить сейчас
                     </button>
                 </div>
@@ -666,21 +666,40 @@
 <script src="js/main.js"></script>
 <script>
     function showTab(tabName) {
-        // Hide all tabs
         document.querySelectorAll('.product-tabs-content').forEach(tab => {
             tab.classList.remove('active');
         });
-        
-        // Remove active class from all buttons
         document.querySelectorAll('.product-tabs-nav button').forEach(btn => {
             btn.classList.remove('active');
         });
-        
-        // Show selected tab
         document.getElementById('tab-' + tabName).classList.add('active');
-        
-        // Add active class to clicked button
         event.target.classList.add('active');
+    }
+    
+    // Функция для кнопки "Купить сейчас"
+    function buyNow(productName, price, category) {
+        // Добавляем товар в корзину
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingItem = cart.find(item => item.name === productName);
+        
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({
+                name: productName,
+                price: price,
+                quantity: 1,
+                category: category
+            });
+        }
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Отправляем событие в метрику
+        ym(105507158,'reachGoal','SHOP_BUY_NOW',{product:productName,price:price,category:category});
+        
+        // Переходим в корзину
+        window.location.href = 'cart.html';
     }
 </script>
 </body>
