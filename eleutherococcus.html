@@ -687,27 +687,41 @@
         event.target.classList.add('active');
     }
     
-    // Функция для кнопки "Купить сейчас"
+    // Функция для кнопки "Купить сейчас" - использует ту же систему хранения, что и CartManager
     function buyNow(productName, price, category) {
-        // Добавляем товар в корзину
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const existingItem = cart.find(item => item.name === productName);
+        const storageKeys = {
+            equipment: 'nosorogEquipmentCart',
+            cosmetic: 'nosorogCosmeticCart',
+            pharma: 'nosorogPharmaCart'
+        };
         
-        if (existingItem) {
-            existingItem.quantity++;
-        } else {
-            cart.push({
-                name: productName,
-                price: price,
-                quantity: 1,
-                category: category
-            });
+        const storageKey = storageKeys[category];
+        if (!storageKey) {
+            console.error('Неизвестная категория:', category);
+            return;
         }
         
-        localStorage.setItem('cart', JSON.stringify(cart));
+        // Добавляем товар в корзину
+        const cart = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        cart.push({
+            id: Date.now(),
+            name: productName,
+            price: price,
+            category: category,
+            quantity: 1
+        });
+        
+        localStorage.setItem(storageKey, JSON.stringify(cart));
+        
+        // Обновляем счетчик корзины
+        if (window.cartManager) {
+            window.cartManager.updateCartBadge();
+        }
         
         // Отправляем событие в метрику
-        ym(105507158,'reachGoal','SHOP_BUY_NOW',{product:productName,price:price,category:category});
+        if (typeof ym !== 'undefined') {
+            ym(105507158,'reachGoal','SHOP_BUY_NOW',{product:productName,price:price,category:category});
+        }
         
         // Переходим в корзину
         window.location.href = 'cart.html';
