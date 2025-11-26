@@ -519,44 +519,27 @@
     </div>
   </div>
 </section>
-<!-- BLOG SECTION -->
+<!-- BLOG SECTION (Автоматическая загрузка из articles-data.js) -->
 <section id="blog" class="blog-section">
     <div class="section-header">
         <h2>Блог и статьи</h2>
         <p class="section-subtitle">Советы, анализ и вдохновляющие истории</p>
     </div>
 
-    <div class="blog-grid">
-        <article class="blog-card">
-            <div class="blog-date">18 ноября</div>
-            <h3>Первый бой Тайсона и Холифилда: названный «Наконец-то»</h3>
-            <p>В истории бокса есть матчи, которые становятся легендой не только из-за зрелищности, но и из-за эмоций, драмы и неожиданных поворотов и предыстории. Один из таких поединков — первый бой Майка Тайсона и Эвандера Холифилда.</p>
-            <div class="blog-meta">
-                <span class="category gold">Мотивация</span>
-                <a href="https://dzen.ru/a/aB8nMPTGHU7JTgHs?share_to=link" class="read-more">Читать →</a>
-            </div>
-        </article>
-        
-        <article class="blog-card">
-            <div class="blog-date">15 ноября</div>
-            <h3>«Неоконченное дело»: Леннокс Льюис против Холифилда 2 бой.</h3>
-            <p>13 ноября 1999 года в Лас-Вегасе случилось то, что должно было произойти ещё восемь месяцев назад. Леннокс Льюис и Эвандер Холифилд снова сошлись в ринге, но на этот раз судьи не стали мудрить.</p>
-            <div class="blog-meta">
-                <span class="category silver">Методика</span>
-                <a href="https://dzen.ru/a/aB-QALK-e1zbWMBG?share_to=link" class="read-more">Читать →</a>
-            </div>
-        </article>
-        
-        <article class="blog-card">
-            <div class="blog-date">12 ноября</div>
-            <h3>Туа vs Ибеабучи: 12 раундов ада, которые навсегда вошли в историю бокса.</h3>
-            <p>Июнь 1997 года, калифорнийский Casino Magic. Два непобежденных танка с кувалдами вместо рук — Дэвид Туа и Ике Ибеабучи — сошлись в бою, который не оставил прежними ни зрителей, ни самих бойцов.</p>
-            <div class="blog-meta">
-                <span class="category gold">Экипировка</span>
-                <a href="https://dzen.ru/a/aBxqbKDMFXODwUSE?share_to=link" class="read-more">Читать →</a>
-            </div>
-        </article>
-    </div>
+    <!-- 3 последние статьи загружаются автоматически -->
+    <div id="blog-container" class="blog-grid"></div>
+    
+    <script src="js/articles-data.js"></script>
+    <script>
+        // Загрузка 3 последних статей
+        (function() {
+            const container = document.getElementById('blog-container');
+            const articles = getLatestArticles(3);
+            articles.forEach(article => {
+                container.innerHTML += generateArticleCard(article);
+            });
+        })();
+    </script>
 </section>
 
 
