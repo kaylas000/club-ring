@@ -1,0 +1,37 @@
+ВСТАВЬТЕ ЭТИ ТЕГИ В <head> ПОСЛЕ СТРОКИ:
+<meta property="og:locale" content="ru_RU">
+
+==============================================
+
+<!-- WhatsApp / Telegram / VK / OK Optimization -->
+<meta property="og:site_name" content="RING BOXING CLUB">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:secure_url" content="https://club-ring.ru/rg.png">
+<link rel="image_src" href="https://club-ring.ru/rg.png">
+<meta property="vk:image" content="https://club-ring.ru/rg.png">
+
+==============================================
+
+СПИСОК СТРАНИЦ ДЛЯ ОБНОВЛЕНИЯ:
+
+1. index.html
+2. shop.html
+3. equipment.html
+4. cosmetic.html
+5. pharma.html
+6. cart.html
+7. articles.html
+8. fish-oil.html
+9. eleutherococcus.html
+10. boxing-riyadh-night-of-champions.html
+11. james-lights-out-toney.html
+12. tyson-holyfield-rivalry-epoch.html
+
+==============================================
+
+ПОСЛЕ ДОБАВЛЕНИЯ ТЕГОВ:
+
+1. Проверить превью: https://developers.facebook.com/tools/debug/
+2. Ввести URL страницы
+3. Нажать "Scrape Again" для обновления кеша
+4. Проверить в WhatsApp
