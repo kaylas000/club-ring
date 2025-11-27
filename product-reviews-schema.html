@@ -1,0 +1,285 @@
+<!-- PRODUCT REVIEWS SCHEMA -->
+<!-- Добавьте эту разметку в карточки товаров -->
+
+<!-- ПРИМЕР 1: Боксёрские перчатки Pro -->
+<div class="product-reviews">
+    <!-- Агрегированный рейтинг -->
+    <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+        <div class="rating-stars">
+            <span class="stars">⭐⭐⭐⭐⭐</span>
+            <span class="rating-value">
+                <strong itemprop="ratingValue">4.8</strong>
+                <meta itemprop="bestRating" content="5">
+                <meta itemprop="worstRating" content="1">
+            </span>
+        </div>
+        <div class="rating-count">
+            <span itemprop="reviewCount">124</span> отзыва
+        </div>
+    </div>
+    
+    <!-- Отзывы -->
+    <div class="reviews-list">
+        <!-- Отзыв 1 -->
+        <div class="review-item" itemprop="review" itemscope itemtype="https://schema.org/Review">
+            <div class="review-header">
+                <div class="review-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <strong itemprop="name">Иван Петров</strong>
+                </div>
+                <div class="review-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <meta itemprop="ratingValue" content="5">
+                    <meta itemprop="bestRating" content="5">
+                    <meta itemprop="worstRating" content="1">
+                </div>
+            </div>
+            <time class="review-date" datetime="2025-01-15" itemprop="datePublished">15 января 2025</time>
+            <p class="review-text" itemprop="reviewBody">
+                Отличные перчатки! Использую уже 3 месяца на тренировках и спаррингах. 
+                Очень качественные, хорошо защищают руки. Рекомендую!
+            </p>
+        </div>
+        
+        <!-- Отзыв 2 -->
+        <div class="review-item" itemprop="review" itemscope itemtype="https://schema.org/Review">
+            <div class="review-header">
+                <div class="review-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <strong itemprop="name">Алексей Смирнов</strong>
+                </div>
+                <div class="review-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                    <span class="stars">⭐⭐⭐⭐☆</span>
+                    <meta itemprop="ratingValue" content="4">
+                    <meta itemprop="bestRating" content="5">
+                    <meta itemprop="worstRating" content="1">
+                </div>
+            </div>
+            <time class="review-date" datetime="2025-02-10" itemprop="datePublished">10 февраля 2025</time>
+            <p class="review-text" itemprop="reviewBody">
+                Перчатки хорошие, но нужно время чтобы разносить. 
+                Первые тренировки были жестковаты, потом стали комфортнее.
+            </p>
+        </div>
+        
+        <!-- Отзыв 3 -->
+        <div class="review-item" itemprop="review" itemscope itemtype="https://schema.org/Review">
+            <div class="review-header">
+                <div class="review-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <strong itemprop="name">Дмитрий Кузнецов</strong>
+                </div>
+                <div class="review-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <meta itemprop="ratingValue" content="5">
+                    <meta itemprop="bestRating" content="5">
+                    <meta itemprop="worstRating" content="1">
+                </div>
+            </div>
+            <time class="review-date" datetime="2025-03-05" itemprop="datePublished">5 марта 2025</time>
+            <p class="review-text" itemprop="reviewBody">
+                Лучшие перчатки, которые я пробовал! Отличная защита, удобно сидят на руке.
+                Цена тоже порадовала, особенно со скидкой.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- =========================== -->
+<!-- ПРИМЕР 2: Протеин Whey Gold -->
+<!-- =========================== -->
+<div class="product-reviews">
+    <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+        <div class="rating-stars">
+            <span class="stars">⭐⭐⭐⭐⭐</span>
+            <span class="rating-value">
+                <strong itemprop="ratingValue">4.9</strong>
+                <meta itemprop="bestRating" content="5">
+                <meta itemprop="worstRating" content="1">
+            </span>
+        </div>
+        <div class="rating-count">
+            <span itemprop="reviewCount">87</span> отзывов
+        </div>
+    </div>
+    
+    <div class="reviews-list">
+        <div class="review-item" itemprop="review" itemscope itemtype="https://schema.org/Review">
+            <div class="review-header">
+                <div class="review-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <strong itemprop="name">Андрей Волков</strong>
+                </div>
+                <div class="review-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <meta itemprop="ratingValue" content="5">
+                    <meta itemprop="bestRating" content="5">
+                </div>
+            </div>
+            <time class="review-date" datetime="2025-02-20" itemprop="datePublished">20 февраля 2025</time>
+            <p class="review-text" itemprop="reviewBody">
+                Отличный протеин! Вкус шоколада - просто бомба. Результат виден уже через месяц.
+                Мышцы растут, восстановление быстрое.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- CSS для отзывов -->
+<style>
+.product-reviews {
+    background: rgba(34, 34, 36, 0.6);
+    border: 2px solid rgba(200, 178, 115, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.product-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(200, 178, 115, 0.2);
+    margin-bottom: 25px;
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating-stars .stars {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+.rating-value strong {
+    color: var(--gold-metal);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.rating-count {
+    color: var(--silver-metal);
+    font-size: 0.95rem;
+}
+
+.rating-count span {
+    color: var(--gold-metal);
+    font-weight: 600;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-item {
+    padding: 20px;
+    background: rgba(21, 21, 22, 0.6);
+    border-radius: 10px;
+    border-left: 3px solid var(--gold-metal);
+    transition: all 0.3s ease;
+}
+
+.review-item:hover {
+    background: rgba(21, 21, 22, 0.9);
+    transform: translateX(5px);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-author strong {
+    color: var(--gold-metal);
+    font-size: 1.1rem;
+}
+
+.review-rating .stars {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.review-date {
+    color: var(--silver-bright);
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.review-text {
+    color: var(--silver-metal);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .product-reviews {
+        padding: 20px;
+    }
+    
+    .product-rating {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+</style>
+
+<!-- =========================== -->
+<!-- ИНСТРУКЦИЯ ПО ИСПОЛЬЗОВАНИЮ -->
+<!-- =========================== -->
+
+<!-- 
+ЧТОБЫ ДОБАВИТЬ ОТЗЫВЫ НА СТРАНИЦУ ТОВАРА:
+
+1. Скопируйте блок <div class="product-reviews"> ... </div>
+
+2. Вставьте его на страницу товара ПОСЛЕ основного описания
+
+3. Измените значения:
+   - itemprop="ratingValue" - средний рейтинг (например, 4.8)
+   - itemprop="reviewCount" - количество отзывов (например, 124)
+   - itemprop="name" - имя автора отзыва
+   - datetime - дата отзыва в формате YYYY-MM-DD
+   - itemprop="reviewBody" - текст отзыва
+
+4. Для звёздочек используйте:
+   5 звёзд: ⭐⭐⭐⭐⭐
+   4 звезды: ⭐⭐⭐⭐☆
+   3 звезды: ⭐⭐⭐☆☆
+
+5. Не забудьте добавить CSS стили в style.css
+
+6. Проверьте разметку на https://validator.schema.org/
+-->
+
+<!-- ПРИМЕР ДЛЯ SHOP.HTML: -->
+<!--
+Добавьте после основной информации о товаре в карточке:
+
+<div class="product-card equipment" ... itemtype="https://schema.org/Product">
+    ...
+    <!-- Основная информация -->
+    
+    <!-- Добавляем рейтинг -->
+    <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <span class="rating-text">
+            <strong itemprop="ratingValue">4.8</strong>
+            (<span itemprop="reviewCount">124</span> отзыва)
+        </span>
+        <meta itemprop="bestRating" content="5">
+        <meta itemprop="worstRating" content="1">
+    </div>
+</div>
+-->
