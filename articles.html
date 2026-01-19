@@ -65,11 +65,32 @@
     </header>
     <main id="main-content" role="main">
         <section class="hero" aria-labelledby="hero-title"><div class="hero-content"><div class="hero-badge">📝 Блог и статьи</div><h1 id="hero-title">Статьи RING BOXING CLUB</h1><p>Советы, анализ боев и вдохновляющие истории мира бокса</p></div></section>
-        <section id="blog" class="blog-section" aria-labelledby="blog-title"><div class="section-header"><h2 id="blog-title">Каталог статей</h2><p class="section-subtitle">Читайте интересные материалы о боксе</p></div><div id="articles-catalog" class="blog-grid" role="list" aria-label="Список статей"></div><script src="js/articles-data.js"></script><script>(function(){const catalog=document.getElementById('articles-catalog');const allArticles=getAllArticles();allArticles.forEach(article=>{catalog.innerHTML+=generateArticleCard(article)})})();</script></section>
+        <section id="blog" class="blog-section" aria-labelledby="blog-title"><div class="section-header"><h2 id="blog-title">Каталог статей</h2><p class="section-subtitle">Читайте интересные материалы о боксе</p></div><div id="articles-catalog" class="blog-grid" role="list" aria-label="Список статей"></div></section>
     </main>
     <footer role="contentinfo" itemscope itemtype="https://schema.org/WPFooter"><div class="footer-content"><div class="footer-column"><h4>О клубе</h4><nav aria-label="Меню футера"><ul><li><a href="index.html#about">О CLUB RING</a></li><li><a href="index.html#trainer">Наш тренер</a></li><li><a href="index.html#services">Направления</a></li><li><a href="index.html#contacts">Контакты</a></li></ul></nav></div><div class="footer-column"><h4>Магазин</h4><nav aria-label="Меню магазина"><ul><li><a href="equipment.html">Экипировка</a></li><li><a href="cosmetic.html">Косметика</a></li><li><a href="pharma.html">Аптека</a></li><li><a href="cart.html">Корзина</a></li></ul></nav></div><div class="footer-column"><h4>Контакты</h4><ul><li>📍 г. Пенза, ул. Кураева, 11</li><li>📞 <a href="tel:+79374291111" onclick="ym(105507158,'reachGoal','PHONE_CLICK');return true;">+7 (937) 429-11-11</a></li><li>Федерация Бокса г. Пенза</li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Боксёрский клуб RING. Все права защищены.</p></div></footer>
+    <script src="js/articles-data.js"></script>
     <script>
       window.AI_CHAT_ENDPOINT = "https://club-ring-ai.club-ring-ai.workers.dev/chat";
+      (function() {
+        function loadArticles() {
+          const catalog = document.getElementById('articles-catalog');
+          if (!catalog) return;
+          if (typeof getAllArticles === 'undefined' || typeof generateArticleCard === 'undefined') {
+            setTimeout(loadArticles, 100);
+            return;
+          }
+          const allArticles = getAllArticles();
+          catalog.innerHTML = '';
+          allArticles.forEach(article => {
+            catalog.innerHTML += generateArticleCard(article);
+          });
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', loadArticles);
+        } else {
+          loadArticles();
+        }
+      })();
     </script>
     <script src="js/main.js"></script>
     <script src="js/ai-chat.js"></script>
