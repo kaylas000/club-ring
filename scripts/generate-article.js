@@ -197,37 +197,6 @@ function generateHTML(title, content, date, category) {
       return html;
     };
 
-    // Улучшенная конвертация Markdown в HTML
-    function markdownToHTML(md) {
-      let html = md;
-      
-      // Заголовки h2 (должны быть первыми, чтобы не конфликтовать)
-      html = html.replace(/^##\s+(.+)$/gim, '</div><h2 style="color: var(--gold-metal); font-size: 1.6rem; font-weight: 800; margin: 40px 0 20px; padding-top: 30px; border-top: 1px solid rgba(200, 178, 115, 0.1);">$1</h2><div style="color: #aaa; font-size: 1.05rem; line-height: 1.8;">');
-      
-      // Заголовки h3
-      html = html.replace(/^###\s+(.+)$/gim, '</div><h3 style="color: var(--silver-metal); font-size: 1.3rem; margin: 30px 0 15px;">$1</h3><div style="color: #aaa; font-size: 1.05rem; line-height: 1.8;">');
-      
-      // Жирный текст
-      html = html.replace(/\*\*(.+?)\*\*/gim, '<strong>$1</strong>');
-      
-      // Курсив
-      html = html.replace(/\*(.+?)\*/gim, '<em>$1</em>');
-      
-      // Параграфы (двойной перенос строки)
-      const paragraphs = html.split('\n\n');
-      html = paragraphs.map(para => {
-        para = para.trim();
-        if (!para) return '';
-        if (para.startsWith('<h')) return para; // Уже обработанные заголовки
-        return `<p style="margin-bottom: 20px;">${para}</p>`;
-      }).join('\n');
-      
-      // Эмодзи между разделами (после h2)
-      html = html.replace(/<\/h2>/g, '</h2>\n<div style="text-align: center; font-size: 3rem; margin: 30px 0;">🥊</div>');
-      
-      return html;
-    }
-
     // Замена контента
     html = html.replace(
       /<!-- Контент -->[\s\S]*?<!-- Добавьте столько разделов, сколько нужно -->/,

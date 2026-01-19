@@ -5,6 +5,16 @@
 
 const articlesData = [
     {
+        date: "2026-01-19",
+        dateText: "19 января",
+        title: "The Cuban pro boxers to keep an eye on in 2026",
+        description: "В последние годы кубинские боксёры показали свои возможности на профессиональном уровне. В 2026 году стоит обратить внимание на перспективных кубинских боксёров, которые могут стать новыми звёздами в мире бокса.",
+        category: "Новости бокса",
+        categoryClass: "gold",
+        url: "the-cuban-pro-boxers-to-keep-an-eye-on-in-2026.html",
+        isExternal: false
+    },
+    {
         date: "2025-11-26",
         dateText: "26 ноября",
         title: "Джеймс «Lights Out» Тони: Мастер защитной школы",
