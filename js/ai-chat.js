@@ -36,7 +36,8 @@
       .ai-chat-btn{position:fixed;right:18px;bottom:18px;z-index:9999;width:58px;height:58px;border-radius:999px;border:0;cursor:pointer;
         background:#C8B273;color:#000;box-shadow:0 10px 30px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;
         font-size:22px;font-weight:700}
-      .ai-chat-panel{position:fixed;right:18px;bottom:90px;z-index:9999;width:360px;max-width:calc(100vw - 36px);height:560px;
+      .ai-chat-panel{position:fixed;right:18px;bottom:90px;z-index:9999;width:360px;max-width:calc(100vw - 36px);
+        height:560px;max-height:calc(100vh - 120px); /* always fit screen (accounts for top + bottom UI) */
         background:#0b0b0b;border:2px solid rgba(200,178,115,.6);border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.55);
         display:none;overflow:hidden}
       .ai-chat-panel.open{display:flex;flex-direction:column}
