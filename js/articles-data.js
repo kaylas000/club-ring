@@ -7,10 +7,8 @@ const articlesData = [
     {
         date: "2026-01-19",
         dateText: "19 января",
-        title: "The Shift in Deontay Wilder’s Career Few Are Ready to Acknowledge",
-        description: "# Смена трактора: что означает будущее для Деонтея Уайлдера?
-
-В боксерском мире периодически возникают вопросы о будущем таких великих боксеров, как Д",
+        title: "The Shift in Deontay Wilder's Career Few Are Ready to Acknowledge",
+        description: "Смена трактора: что означает будущее для Деонтея Уайлдера? В боксерском мире периодически возникают вопросы о будущем таких великих боксеров, как Деонтей Уайлдер. Рассмотрим свежий комментарий Карла Фроча.",
         category: "Новости бокса",
         categoryClass: "gold",
         url: "the-shift-in-deontay-wilders-career-few-are-ready.html",
