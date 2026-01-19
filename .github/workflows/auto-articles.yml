@@ -6,6 +6,10 @@ on:
     - cron: '0 10 * * *'
   workflow_dispatch: # Ручной запуск
 
+permissions:
+  contents: write
+  pull-requests: read
+
 jobs:
   generate-articles:
     runs-on: ubuntu-latest
