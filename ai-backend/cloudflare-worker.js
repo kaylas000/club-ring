@@ -25,7 +25,7 @@ function corsHeaders(request) {
   };
 }
 
-async function callGroq(env, messages) {
+async function callGroq(env, messages, maxTokens = 600) {
   const apiKey = env.GROQ_API_KEY;
   if (!apiKey) throw new Error('GROQ_API_KEY is missing');
 
@@ -41,7 +41,7 @@ async function callGroq(env, messages) {
       model,
       messages,
       temperature: 0.7,
-      max_tokens: 600,
+      max_tokens: maxTokens,
     }),
   });
 
@@ -62,6 +62,48 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders(request) });
     }
 
+    // Endpoint для генерации статей
+    if (request.method === 'POST' && url.pathname === '/generate-article') {
+      try {
+        const body = await request.json();
+        const prompt = body.prompt || '';
+        const title = body.title || '';
+        const source = body.source || '';
+
+        if (!prompt) {
+          return new Response(JSON.stringify({ success: false, error: 'prompt required' }), {
+            status: 400,
+            headers: { ...corsHeaders(request), 'Content-Type': 'application/json' },
+          });
+        }
+
+        const system = `Ты - профессиональный журналист и аналитик бокса. Пиши подробные, интересные статьи на русском языке для боксёрского клуба RING в Пензе.
+Требования:
+- Статья должна быть 800-1200 слов
+- Используй профессиональную терминологию бокса
+- Раздели на логические разделы с подзаголовками (h2)
+- Добавь анализ и контекст события
+- В конце упомяни клуб RING в Пензе (тел: +7 (937) 429-11-11)
+- Формат ответа: чистый Markdown без дополнительных пояснений`;
+
+        const answer = await callGroq(env, [
+          { role: 'system', content: system },
+          { role: 'user', content: prompt },
+        ], 2000); // Больше токенов для статей
+
+        return new Response(JSON.stringify({ success: true, content: answer, response: answer }), {
+          status: 200,
+          headers: { ...corsHeaders(request), 'Content-Type': 'application/json' },
+        });
+      } catch (e) {
+        return new Response(JSON.stringify({ success: false, error: 'Article generation error: ' + e.message }), {
+          status: 500,
+          headers: { ...corsHeaders(request), 'Content-Type': 'application/json' },
+        });
+      }
+    }
+
+    // Endpoint для чата
     if (request.method !== 'POST' || url.pathname !== '/chat') {
       return new Response('Not found', { status: 404, headers: corsHeaders(request) });
     }

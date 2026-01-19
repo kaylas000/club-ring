@@ -1,0 +1,66 @@
+{
+  "sources": [
+    {
+      "name": "BoxingScene",
+      "url": "https://www.boxingscene.com/",
+      "rss": "https://www.boxingscene.com/rss",
+      "type": "rss",
+      "enabled": true,
+      "language": "en"
+    },
+    {
+      "name": "World Boxing News",
+      "url": "https://www.worldboxingnews.net/",
+      "rss": "https://www.worldboxingnews.net/feed",
+      "type": "rss",
+      "enabled": true,
+      "language": "en"
+    },
+    {
+      "name": "The Ring Magazine",
+      "url": "https://www.ringtv.com/",
+      "rss": "https://www.ringtv.com/feed/",
+      "type": "rss",
+      "enabled": true,
+      "language": "en"
+    },
+    {
+      "name": "AllBoxing",
+      "url": "https://allboxing.ru/",
+      "rss": "https://allboxing.ru/feed",
+      "type": "rss",
+      "enabled": true,
+      "language": "ru"
+    },
+    {
+      "name": "Vringe",
+      "url": "https://vringe.com/",
+      "rss": "https://vringe.com/feed/",
+      "type": "rss",
+      "enabled": true,
+      "language": "ru"
+    }
+  ],
+  "filters": {
+    "minWords": 50,
+    "maxWords": 2000,
+    "keywords": [
+      "бокс",
+      "boxing",
+      "fight",
+      "бой",
+      "champion",
+      "чемпион",
+      "title",
+      "титул",
+      "match",
+      "матч"
+    ],
+    "excludeKeywords": [
+      "ufc",
+      "mma",
+      "wrestling",
+      "реслинг"
+    ]
+  }
+}
