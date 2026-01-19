@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -28,23 +29,24 @@ jobs:
           cd scripts
           npm install
       
-      - name: Parse boxing news
+      - name: Generate article from news
         run: |
           cd scripts
-          node parse-news.js
-      
-      - name: Generate article
-        run: |
-          cd scripts
-          node generate-article.js
+          node main.js
         continue-on-error: true
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git diff --staged --quiet || git commit -m "Auto: новая статья из новостей бокса [skip ci]"
-          git push origin main
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto: новая статья из новостей бокса [skip ci]"
+            git push origin main
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
