@@ -1,0 +1,16 @@
+name = "club-ring-ai"
+main = "cloudflare-worker.js"
+compatibility_date = "2024-01-01"
+
+# Secrets (set in Cloudflare dashboard or via wrangler):
+# - GROQ_API_KEY
+#
+# Optional vars:
+# - GROQ_MODEL (default: llama-3.1-8b-instant)
+
+name = "club-ring-ai"
+main = "cloudflare-worker.js"
+compatibility_date = "2024-01-01"
+
+[env.production]
+vars = { GROQ_MODEL = "llama-3.1-8b-instant" }
