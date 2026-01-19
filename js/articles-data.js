@@ -101,19 +101,32 @@ function getAllArticles() {
 }
 
 /**
+ * Экранировать HTML символы
+ */
+function escapeHtml(text) {
+    if (!text) return '';
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+/**
  * Сгенерировать HTML карточки статьи
  */
 function generateArticleCard(article) {
-    const targetAttr = article.isExternal ? 'target="_blank"' : '';
+    const targetAttr = article.isExternal ? 'target="_blank" rel="noopener"' : '';
     
     return `
         <article class="blog-card">
-            <div class="blog-date">${article.dateText}</div>
-            <h3>${article.title}</h3>
-            <p>${article.description}</p>
+            <div class="blog-date">${escapeHtml(article.dateText)}</div>
+            <h3>${escapeHtml(article.title)}</h3>
+            <p>${escapeHtml(article.description)}</p>
             <div class="blog-meta">
-                <span class="category ${article.categoryClass}">${article.category}</span>
-                <a href="${article.url}" class="read-more" ${targetAttr}>Читать →</a>
+                <span class="category ${escapeHtml(article.categoryClass)}">${escapeHtml(article.category)}</span>
+                <a href="${escapeHtml(article.url)}" class="read-more" ${targetAttr}>Читать →</a>
             </div>
         </article>
     `;

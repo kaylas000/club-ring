@@ -72,23 +72,28 @@
     <script>
       window.AI_CHAT_ENDPOINT = "https://club-ring-ai.club-ring-ai.workers.dev/chat";
       (function() {
-        function loadArticles() {
+        function initArticles() {
           const catalog = document.getElementById('articles-catalog');
-          if (!catalog) return;
+          if (!catalog) {
+            setTimeout(initArticles, 50);
+            return;
+          }
           if (typeof getAllArticles === 'undefined' || typeof generateArticleCard === 'undefined') {
-            setTimeout(loadArticles, 100);
+            setTimeout(initArticles, 50);
             return;
           }
           const allArticles = getAllArticles();
-          catalog.innerHTML = '';
-          allArticles.forEach(article => {
-            catalog.innerHTML += generateArticleCard(article);
-          });
+          if (allArticles && allArticles.length > 0) {
+            catalog.innerHTML = '';
+            allArticles.forEach(function(article) {
+              catalog.innerHTML += generateArticleCard(article);
+            });
+          }
         }
         if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', loadArticles);
+          document.addEventListener('DOMContentLoaded', initArticles);
         } else {
-          loadArticles();
+          initArticles();
         }
       })();
     </script>
