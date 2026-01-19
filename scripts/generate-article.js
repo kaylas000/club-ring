@@ -315,10 +315,18 @@ export async function generateArticleFromNews(newsItem) {
     fs.writeFileSync(filePath, html, 'utf-8');
     console.log(`✅ Создан файл: ${fileName}`);
     
-    // Обновление данных
+    // Обновление данных (очищаем от Markdown в описании)
+    const cleanDescription = content
+      .replace(/^#+\s+/gm, '') // Убираем заголовки Markdown
+      .replace(/\*\*/g, '') // Убираем жирный текст
+      .replace(/\*/g, '') // Убираем курсив
+      .replace(/\n+/g, ' ') // Заменяем переносы на пробелы
+      .trim()
+      .substring(0, 150);
+    
     updateArticlesData({
-      title: newsItem.title,
-      description: content.substring(0, 150),
+      title: translatedNews.title, // Используем переведенный заголовок
+      description: cleanDescription,
       category,
       fileName
     });
