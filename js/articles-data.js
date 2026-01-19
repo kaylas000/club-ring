@@ -7,6 +7,18 @@ const articlesData = [
     {
         date: "2026-01-19",
         dateText: "19 января",
+        title: "The Shift in Deontay Wilder’s Career Few Are Ready to Acknowledge",
+        description: "# Смена трактора: что означает будущее для Деонтея Уайлдера?
+
+В боксерском мире периодически возникают вопросы о будущем таких великих боксеров, как Д",
+        category: "Новости бокса",
+        categoryClass: "gold",
+        url: "the-shift-in-deontay-wilders-career-few-are-ready.html",
+        isExternal: false
+    },
+    {
+        date: "2026-01-19",
+        dateText: "19 января",
         title: "The Cuban pro boxers to keep an eye on in 2026",
         description: "В последние годы кубинские боксёры показали свои возможности на профессиональном уровне. В 2026 году стоит обратить внимание на перспективных кубинских боксёров, которые могут стать новыми звёздами в мире бокса.",
         category: "Новости бокса",

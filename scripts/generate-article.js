@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const AI_ENDPOINT = 'https://club-ring-ai.club-ring-ai.workers.dev/generate-article';
-const ARTICLE_TEMPLATE_PATH = path.join(__dirname, '..', 'ARTICLE_TEMPLATE.md');
+const ARTICLE_TEMPLATE_PATH = path.join(__dirname, '..', 'boxing-riyadh-night-of-champions.html');
 
 /**
  * Перевод новости на русский язык через AI
@@ -156,15 +156,26 @@ function createFileName(title) {
 function generateHTML(title, content, date, category) {
   const template = fs.readFileSync(ARTICLE_TEMPLATE_PATH, 'utf-8');
   
-  // Простая замена плейсхолдеров
+  // Находим секцию с контентом статьи для замены
+  const dateObj = new Date(date);
+  const dateFormatted = formatDate(date);
+  const readingTime = Math.max(15, Math.ceil(content.split(/\s+/).length / 200));
+  const description = content.substring(0, 160).replace(/"/g, '&quot;');
+  const keywords = 'бокс, новости бокса, ' + title.split(' ').slice(0, 5).join(', ');
+  
+  // Заменяем заголовок в title и meta
   let html = template
-    .replace(/\[ЗАГОЛОВОК_СТАТЬИ\]/g, title)
-    .replace(/\[ДАТА\]/g, formatDate(date))
-    .replace(/\[КАТЕГОРИЯ\]/g, category)
-    .replace(/\[КРАТКОЕ_ОПИСАНИЕ_ДЛЯ_ПОИСКОВИКОВ\]/g, title.substring(0, 160))
-    .replace(/\[КЛЮЧЕВЫЕ_СЛОВА\]/g, 'бокс, новости бокса, ' + title.split(' ').slice(0, 5).join(', '))
-    .replace(/\[ВРЕМЯ\]/g, Math.max(15, Math.ceil(content.split(/\s+/).length / 200))) // Минимум 15 минут для длинных статей
-    .replace(/\[КРАТКОЕ_НАЗВАНИЕ_ДЛЯ_КРОШЕК\]/g, title.substring(0, 40));
+    .replace(/<title>.*?<\/title>/i, `<title>${title} | RING BOXING CLUB</title>`)
+    .replace(/meta name="description" content="[^"]*"/i, `meta name="description" content="${description}"`)
+    .replace(/meta name="keywords" content="[^"]*"/i, `meta name="keywords" content="${keywords}"`)
+    .replace(/property="og:title" content="[^"]*"/i, `property="og:title" content="${title}"`)
+    .replace(/property="og:description" content="[^"]*"/i, `property="og:description" content="${description}"`)
+    .replace(/itemprop="headline"[^>]*>.*?<\/h1>/i, `itemprop="headline">${title}</h1>`)
+    .replace(/itemprop="description"[^>]*>.*?<\/p>/i, `itemprop="description">${description}</p>`)
+    .replace(/class="blog-date"[^>]*>.*?<\/div>/i, `class="blog-date" itemprop="datePublished" content="${dateObj.toISOString().split('T')[0]}">${dateFormatted} ${dateObj.getFullYear()}</div>`)
+    .replace(/Анализ боёв/g, category) // Заменяем категорию в бейдже
+    .replace(/⏱️ \d+ минут чтения/i, `⏱️ ${readingTime} минут чтения`)
+    .replace(/<span>Рияд как новая столица бокса<\/span>/i, `<span>${title.substring(0, 40)}</span>`);
 
 
     // Улучшенная конвертация Markdown в HTML
@@ -197,14 +208,18 @@ function generateHTML(title, content, date, category) {
       return html;
     };
 
-    // Замена контента
-    html = html.replace(
-      /<!-- Контент -->[\s\S]*?<!-- Добавьте столько разделов, сколько нужно -->/,
-      `<!-- Контент -->
-                    <div style="color: #aaa; font-size: 1.05rem; line-height: 1.8;">
-                        ${markdownToHTML(content)}
-                    </div>`
-    );
+    // Замена контента статьи (находим div с itemprop="articleBody")
+    const articleBodyRegex = /<div itemprop="articleBody"[^>]*>[\s\S]*?<\/div>/i;
+    const articleBodyMatch = html.match(articleBodyRegex);
+    
+    if (articleBodyMatch) {
+      const convertedContent = markdownToHTML(content);
+      html = html.replace(articleBodyRegex, `<div itemprop="articleBody" style="color:#aaa;font-size:1.05rem;line-height:1.8">${convertedContent}</div>`);
+    } else {
+      // Fallback: ищем любой большой div с контентом
+      html = html.replace(/<div[^>]*style="[^"]*color:#aaa[^"]*"[^>]*>[\s\S]*?<\/div>/i, 
+        `<div style="color:#aaa;font-size:1.05rem;line-height:1.8">${markdownToHTML(content)}</div>`);
+    }
 
   return html;
 }
