@@ -5,6 +5,16 @@
 
 const articlesData = [
     {
+        date: "2026-01-20",
+        dateText: "20 января",
+        title: "The Shift in Deontay Wilder’s Career Few Are Ready to Acknowledge",
+        description: "Смена курса в карьере Деонтея Уайлдера: что означает это для бокса События в мире бокса часто развиваются стремительным темпом, и в последнее время не",
+        category: "Новости бокса",
+        categoryClass: "gold",
+        url: "the-shift-in-deontay-wilders-career-few-are-ready.html",
+        isExternal: false
+    },
+    {
         date: "2026-01-19",
         dateText: "19 января",
         title: "Сдвиг в карьере Деонтея Уайлдера, который немногие готовы признать",
