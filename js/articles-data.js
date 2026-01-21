@@ -5,6 +5,16 @@
 
 const articlesData = [
     {
+        date: "2026-01-21",
+        dateText: "21 января",
+        title: "WBC confirms Christian Mbilli-Hamzah Sheeraz title fight no longer in play",
+        description: "Взрыв в мире супер-средневесов: отмена титульного боя между Мбилли и Ширезом Исторический контекст: предыстория события Навстречу новому году в мире б",
+        category: "Анализ боёв",
+        categoryClass: "gold",
+        url: "wbc-confirms-christian-mbilli-hamzah-sheeraz-title.html",
+        isExternal: false
+    },
+    {
         date: "2026-01-20",
         dateText: "20 января",
         title: "The Shift in Deontay Wilder’s Career Few Are Ready to Acknowledge",
