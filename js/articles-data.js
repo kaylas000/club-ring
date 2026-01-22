@@ -5,6 +5,16 @@
 
 const articlesData = [
     {
+        date: "2026-01-22",
+        dateText: "22 января",
+        title: "One Loss Could End It: Deontay Wilder Puts Usyk Title Shot on the Line",
+        description: "Взрывная встреча: Wilder против Usyk. Все или ничего Бокс - это спорт, где одна ошибка может стоить вам победу. Или даже карьеру. Итак, когда мы слыши",
+        category: "Новости бокса",
+        categoryClass: "gold",
+        url: "one-loss-could-end-it-deontay-wilder-puts-usyk-tit.html",
+        isExternal: false
+    },
+    {
         date: "2026-01-21",
         dateText: "21 января",
         title: "WBC confirms Christian Mbilli-Hamzah Sheeraz title fight no longer in play",
