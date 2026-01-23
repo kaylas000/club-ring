@@ -5,6 +5,16 @@
 
 const articlesData = [
     {
+        date: "2026-01-23",
+        dateText: "23 января",
+        title: "WBC Champion Gvozdyk Features on Zuffa Boxing 02 Card",
+        description: "Возвращение королей: WBC Чемпион Гвоздик на карде Zuffa Boxing 02 Всего две недели назад мы обсуждали дебют Zuffa Boxing на профессиональном ринге, в ",
+        category: "Новости бокса",
+        categoryClass: "gold",
+        url: "wbc-champion-gvozdyk-features-on-zuffa-boxing-02-c.html",
+        isExternal: false
+    },
+    {
         date: "2026-01-22",
         dateText: "22 января",
         title: "One Loss Could End It: Deontay Wilder Puts Usyk Title Shot on the Line",
