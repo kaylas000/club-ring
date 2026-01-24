@@ -5,6 +5,16 @@
 
 const articlesData = [
     {
+        date: "2026-01-24",
+        dateText: "24 января",
+        title: "Several High-Profile Boxing Plans Remain Unresolved Heading Into Spring",
+        description: "Нерешённость высокопрофильных планов в боксе перед весной Итак, как только календарь бокса переводится на весенний период, несколько высокопрофильных ",
+        category: "Новости бокса",
+        categoryClass: "gold",
+        url: "several-high-profile-boxing-plans-remain-unresolve.html",
+        isExternal: false
+    },
+    {
         date: "2026-01-23",
         dateText: "23 января",
         title: "WBC Champion Gvozdyk Features on Zuffa Boxing 02 Card",
