@@ -5,6 +5,16 @@
 
 const articlesData = [
     {
+        date: "2026-01-25",
+        dateText: "25 января",
+        title: "Another Abel Mendoza Fight Missing From His 42-0 Record",
+        description: "Следы в тени: проблема с записямиbout Abel Mendoza Мир бокса в очередной раз оказывается в центре внимания из-за неожиданного поворота событий. Этот р",
+        category: "Анализ боёв",
+        categoryClass: "gold",
+        url: "another-abel-mendoza-fight-missing-from-his-42-0-r.html",
+        isExternal: false
+    },
+    {
         date: "2026-01-24",
         dateText: "24 января",
         title: "Several High-Profile Boxing Plans Remain Unresolved Heading Into Spring",
