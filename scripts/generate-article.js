@@ -297,7 +297,7 @@ export async function generateArticleFromNews(newsItem) {
     // Шаг 2: Генерация контента через AI
     const content = translatedNews.content || await generateArticleContent(translatedNews);
     
-    if (!content || content.length < 100) {
+    if (!content && !translatedNews.content) {
       throw new Error('AI вернул слишком короткий контент');
     }
     
