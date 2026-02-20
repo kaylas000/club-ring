@@ -295,7 +295,12 @@ export async function generateArticleFromNews(newsItem) {
     const translatedNews = await translateNewsToRussian(newsItem);
     
     // Шаг 2: Генерация контента через AI
-    const content = await generateArticleContent(translatedNews);
+    // const content = await generateArticleContent(translatedNews);
+    const content = { 
+        content: newsItem.content, 
+        title: newsItem.title, 
+        seoDescription: newsItem.description 
+    };
     
     if (!content || content.length < 100) {
       throw new Error('AI вернул слишком короткий контент');
@@ -311,12 +316,12 @@ export async function generateArticleFromNews(newsItem) {
     const fileName = createFileName(newsItem.title);
     const filePath = path.join(__dirname, '..', fileName);
     
-    const html = generateHTML(newsItem.title, content, newsItem.pubDate, category);
+    const html = generateHTML(newsItem.title, newsItem.content, newsItem.pubDate, category);
     fs.writeFileSync(filePath, html, 'utf-8');
     console.log(`✅ Создан файл: ${fileName}`);
     
     // Обновление данных (очищаем от Markdown в описании)
-    const cleanDescription = content
+    const cleanDescription = newsItem.content
       .replace(/^#+\s+/gm, '') // Убираем заголовки Markdown
       .replace(/\*\*/g, '') // Убираем жирный текст
       .replace(/\*/g, '') // Убираем курсив
